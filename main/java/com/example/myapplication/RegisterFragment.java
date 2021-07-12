@@ -22,7 +22,7 @@ public class RegisterFragment extends Fragment {
     private EditText EmailBox,PassBox,UnBox,PNBox;
     private Switch UserModeSwitch;
     String type=new String();
-    UsersDataBase us=new UsersDataBase(getContext());
+    UsersDataBase us;
 
     @Nullable
     @org.jetbrains.annotations.Nullable
@@ -47,6 +47,7 @@ public class RegisterFragment extends Fragment {
             type="Seller";
         }
         else{type="NormalUser";}
+        us=new UsersDataBase(getContext());
 
         registerButton.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -43,7 +43,7 @@ public class LoginFragment extends Fragment {
     private TextView forgetPass,error_text,register_text;
     private SignInButton signInButton;
     private GoogleSignInClient mGoogleSignInClient;
-    UsersDataBase us=new UsersDataBase(getContext());
+    UsersDataBase us;
 
 
     ActivityResultLauncher<Intent> mStartForResult = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(),
@@ -142,7 +142,7 @@ public class LoginFragment extends Fragment {
             String personId = acct.getId();
             Uri personPhoto = acct.getPhotoUrl();
 
-
+            us=new UsersDataBase(getContext());
             us.register_user(personId,personEmail,personId+personFamilyName,"-","-",acct.getPhotoUrl().toString());
 
             Intent intent= new Intent(getContext(),HomeActivity.class);
