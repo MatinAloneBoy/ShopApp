@@ -1,5 +1,7 @@
 package com.example.myapplication;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +15,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -22,7 +25,7 @@ public class RegisterFragment extends Fragment {
     private EditText EmailBox,PassBox,UnBox,PNBox;
     private Switch UserModeSwitch;
     String type=new String();
-    UsersDataBase us=new UsersDataBase(getContext());
+    UsersDataBase us;
 
     @Nullable
     @org.jetbrains.annotations.Nullable
@@ -42,17 +45,17 @@ public class RegisterFragment extends Fragment {
         registerButton=view.findViewById(R.id.register_button);
         UserModeSwitch=view.findViewById(R.id.new_userMode_switch);
 
-
         if(UserModeSwitch.callOnClick()){
             type="Seller";
         }
         else{type="NormalUser";}
-
+        us=new UsersDataBase(getContext());
         registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Toast.makeText(getActivity(), "Registered", Toast.LENGTH_SHORT).show();
                 us.register_user(UnBox.getText().toString(),EmailBox.getText().toString(),PassBox.getText().toString(),type,PNBox.getText().toString(),"https://www.seekpng.com/ima/u2q8w7r5u2o0o0i1/");
+                Navigation.findNavController(view).navigate(R.id.action_registerFragment_to_homeActivity);
 
             }
         });

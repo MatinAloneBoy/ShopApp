@@ -31,16 +31,15 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="50dp"
             android:background="@drawable/edit_text_background"
-            android:editable="true"
             android:hint="Email"
-            android:inputType="textEmailAddress"
+            android:inputType="text"
             android:padding="15dp"
             android:requiresFadingEdge="horizontal"
             android:singleLine="true"
             android:textAlignment="center"
             android:textColor="@color/textDark"
             android:textColorHint="#757575"
-            android:autofillHints="" />
+            />
     </FrameLayout>
 
     <FrameLayout
@@ -106,7 +105,7 @@
             android:background="@drawable/edit_text_background"
             android:editable="true"
             android:hint="Username"
-            android:inputType="textPassword"
+            android:inputType="text"
             android:padding="15dp"
             android:password="true"
             android:textAlignment="center"
@@ -140,7 +139,7 @@
             android:layout_height="wrap_content"
             android:background="@drawable/edit_text_background"
             android:hint="Phone Number"
-            android:inputType="number"
+            android:inputType="phone"
             android:padding="15dp"
             android:password="true"
             android:textAlignment="center"

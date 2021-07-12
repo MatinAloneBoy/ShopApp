@@ -23,8 +23,6 @@ import androidx.appcompat.app.ActionBar;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 
-import com.example.myapplication.R;
-import com.example.myapplication.UsersDataBase;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -32,6 +30,7 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.navigation.NavigationView;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -43,7 +42,7 @@ public class LoginFragment extends Fragment {
     private TextView forgetPass,error_text,register_text;
     private SignInButton signInButton;
     private GoogleSignInClient mGoogleSignInClient;
-    UsersDataBase us=new UsersDataBase(getContext());
+    UsersDataBase us;
 
 
     ActivityResultLauncher<Intent> mStartForResult = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(),
@@ -56,7 +55,6 @@ public class LoginFragment extends Fragment {
                         handleSignInResult(task);
                     }
                 }
-
             });
     @Nullable
     @org.jetbrains.annotations.Nullable
@@ -104,6 +102,13 @@ public class LoginFragment extends Fragment {
             }
         });
 
+        forgetPass.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Navigation.findNavController(view).navigate(R.id.action_loginFragment_to_forgetPassFragment);
+            }
+        });
+
         return view;
     }
 
@@ -135,22 +140,22 @@ public class LoginFragment extends Fragment {
     private void updateUI(GoogleSignInAccount acct) {
         if (acct!=null){
             String personName = acct.getDisplayName();
-            String personPhoneNumber = acct.getDisplayName();
             String personGivenName = acct.getGivenName();
             String personFamilyName = acct.getFamilyName();
             String personEmail = acct.getEmail();
             String personId = acct.getId();
             Uri personPhoto = acct.getPhotoUrl();
 
-
+            us=new UsersDataBase(getContext());
             us.register_user(personId,personEmail,personId+personFamilyName,"-","-",acct.getPhotoUrl().toString());
+
 
             Intent intent= new Intent(getContext(),HomeActivity.class);
             startActivity(intent);
 
             Toast.makeText(getActivity(), personName, Toast.LENGTH_SHORT).show();
         }else {
-            Toast.makeText(getActivity(), "Could not sign in with Google", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(getActivity(), "Could not sign in with Google", Toast.LENGTH_SHORT).show();
         }
     }
 
