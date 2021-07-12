@@ -30,6 +30,10 @@ import androidx.annotation.Nullable;
         @Override
         public void onCreate(SQLiteDatabase db) {
             db.execSQL("CREATE TABLE IF NOT EXISTS "+TABLE_NAME+"(ID INTEGER PRIMARY KEY AUTOINCREMENT,USERNAME TEXT,EMAIL TEXT,PASSWORD TEXT,USER_IMAGE_PATH TEXT,NUM_LOGIN TEXT,PhoneNumber TEXT,Type TEXT)");
+<<<<<<< HEAD
+=======
+
+>>>>>>> dcd91fa6f3f74cf8a26d6ebd8ade799053959061
         }
 
         @Override

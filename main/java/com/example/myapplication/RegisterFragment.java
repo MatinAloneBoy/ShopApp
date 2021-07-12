@@ -50,6 +50,10 @@ public class RegisterFragment extends Fragment {
         }
         else{type="NormalUser";}
         us=new UsersDataBase(getContext());
+<<<<<<< HEAD
+=======
+
+>>>>>>> dcd91fa6f3f74cf8a26d6ebd8ade799053959061
         registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

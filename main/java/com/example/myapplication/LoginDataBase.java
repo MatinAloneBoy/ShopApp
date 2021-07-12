@@ -9,7 +9,7 @@ import androidx.annotation.Nullable;
 import java.util.ArrayList;
 
 public class LoginDataBase extends SQLiteOpenHelper {
-    private static final String DATABASE_NAME = "USER_RECORD";
+    private static final String DATABASE_NAME = "LOGIN_USER_RECORD";
     private static final String TABLE_NAME = "USER_DATA";
     private static final String COL_1 = "ID";
     private static final String COL_2 = "USERNAME";
@@ -27,6 +27,10 @@ public class LoginDataBase extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("CREATE TABLE IF NOT EXISTS "+TABLE_NAME+"(ID INTEGER PRIMARY KEY AUTOINCREMENT,USERNAME TEXT,EMAIL TEXT,PASSWORD TEXT,USER_IMAGE_PATH TEXT,NUM_LOGIN TEXT,PhoneNumber TEXT,Type TEXT)");
+<<<<<<< HEAD
+=======
+
+>>>>>>> dcd91fa6f3f74cf8a26d6ebd8ade799053959061
     }
 
     @Override
