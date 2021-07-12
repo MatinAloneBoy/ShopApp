@@ -32,7 +32,7 @@
             android:layout_marginTop="50dp"
             android:background="@drawable/edit_text_background"
             android:hint="Email"
-            android:inputType="text"
+            android:inputType="textEmailAddress"
             android:padding="15dp"
             android:requiresFadingEdge="horizontal"
             android:singleLine="true"
@@ -99,15 +99,16 @@
 
         <EditText
             android:id="@+id/new_username_edit_text"
+            style="@android:style/Widget.DeviceDefault.EditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="50dp"
             android:background="@drawable/edit_text_background"
-            android:editable="true"
             android:hint="Username"
             android:inputType="text"
             android:padding="15dp"
-            android:password="true"
+            android:requiresFadingEdge="horizontal"
+            android:singleLine="true"
             android:textAlignment="center"
             android:textColor="@color/textDark"
             android:textColorHint="#757575" />
@@ -135,17 +136,19 @@
 
         <EditText
             android:id="@+id/new_phoneNumber_edit_text"
+            style="@android:style/Widget.DeviceDefault.EditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
             android:background="@drawable/edit_text_background"
             android:hint="Phone Number"
             android:inputType="phone"
             android:padding="15dp"
-            android:password="true"
+            android:requiresFadingEdge="horizontal"
+            android:singleLine="true"
             android:textAlignment="center"
             android:textColor="@color/textDark"
             android:textColorHint="#757575"
-            android:layout_marginTop="50dp"
             />
     </FrameLayout>
 

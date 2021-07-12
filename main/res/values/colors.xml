@@ -15,4 +15,7 @@
     <color name="strokeLight">#9E9E9E</color>
     <color name="textDark">@color/white</color>
     <color name="textLight">@color/backgroundDark</color>
+    <color name="NavBar">#4D4D50</color>
+
+
 </resources>

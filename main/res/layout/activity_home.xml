@@ -20,6 +20,8 @@
         android:layout_height="match_parent"
         android:background="@drawable/navigation_background"
         app:headerLayout="@layout/header_navigation_drawer"
-        app:menu="@menu/navigation_drawer" />
+        app:menu="@menu/navigation_drawer"
+        app:itemTextColor="@color/primaryLight"
+        />
 
 </androidx.drawerlayout.widget.DrawerLayout>

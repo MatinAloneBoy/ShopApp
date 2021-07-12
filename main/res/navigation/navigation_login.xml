@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/loginFragment"
-        android:name="com.example.myapplication.LoginFragment"
+        android:name="com.example.myapplication.login.LoginFragment"
         android:label="fragment_login"
         tools:layout="@layout/fragment_login" >
         <action
@@ -17,9 +17,35 @@
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
             app:popExitAnim="@anim/slide_out_right"/>
+        <action
+            android:id="@+id/action_loginFragment_to_forgetPassFragment"
+            app:destination="@id/forgetPassFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
     </fragment>
+
     <fragment
         android:id="@+id/registerFragment"
-        android:name="com.example.myapplication.RegisterFragment"
-        android:label="RegisterFragment" />
+        android:name="com.example.myapplication.login.RegisterFragment"
+        android:label="RegisterFragment" >
+        <action
+            android:id="@+id/action_registerFragment_to_homeActivity"
+            app:destination="@id/homeActivity"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+    </fragment>
+    <fragment
+        android:id="@+id/forgetPassFragment"
+        android:name="com.example.myapplication.login.ForgetPassFragment"
+        android:label="ForgetPassFragment" />
+
+    <activity
+        android:id="@+id/homeActivity"
+        android:name="com.example.myapplication.HomeActivity"
+        android:label="activity_home"
+        tools:layout="@layout/activity_home" />
 </navigation>
