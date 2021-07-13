@@ -18,6 +18,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.Navigation;
 
 import com.example.myapplication.R;
 import com.example.myapplication.databinding.FragmentProfileBinding;
@@ -64,7 +65,7 @@ public class ProfileFragment extends Fragment {
                         break;
 
                     case 1:
-                        Toast.makeText(context, "Fuck You Too", Toast.LENGTH_SHORT).show();
+                        Navigation.findNavController(view).navigate(R.id.action_profileFragment_to_settingsFragment);
                         break;
                 }
 
