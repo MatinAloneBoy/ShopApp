@@ -14,5 +14,15 @@
     <string name="title_activity_home_bottom">MainActivity</string>
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
+    <string name="title_profile">Profile</string>
+    <string name="title_category">Category</string>
     <string name="title_notifications">Notifications</string>
+    <string name="profile_file_key">Profile Key File</string>
+    <string name="profile_name_key">Profile Name Key</string>
+    <string name="profile_email_key">Profile Email Key</string>
+    <string name="profile_id_key">Profile Id Key</string>
+    <string name="profile_photo_key">Profile Photo Key</string>
+    <string name="profile_type_key">Profile Type Key</string>
+    <string name="profile_phone_number_key">Profile Phone Number Key</string>
+
 </resources>
