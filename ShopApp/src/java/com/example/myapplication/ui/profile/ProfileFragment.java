@@ -58,6 +58,7 @@ public class ProfileFragment extends Fragment {
         binding.profileFragmentList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view,int position, long id) {
+                View view2 = inflater.inflate(R.layout.fragment_profile,container,false);
 
                 switch (position){
                     case 0:
@@ -65,7 +66,7 @@ public class ProfileFragment extends Fragment {
                         break;
 
                     case 1:
-                        Navigation.findNavController(view).navigate(R.id.action_profileFragment_to_settingsFragment);
+                        Navigation.findNavController(view2).navigate(R.id.action_navigation_profile_to_settingsFragment2);
                         break;
                 }
 
