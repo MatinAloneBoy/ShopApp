@@ -6,7 +6,7 @@
     android:background="@color/backgroundDark">
 
     <FrameLayout
-        android:id="@+id/new_PhoneNumber_to_change_frame"
+        android:id="@+id/new_Name_to_change_frame"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -16,11 +16,11 @@
         android:textAlignment="center">
 
         <TextView
-            android:id="@+id/new_PhoneNumber_to_change_text"
+            android:id="@+id/new_Name_to_change_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="20dp"
-            android:text="Enter your New Phone Number :"
+            android:text="Enter your New Name :"
             android:textColor="@android:color/holo_orange_dark"
             android:textStyle="bold" />
 
@@ -31,8 +31,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="50dp"
             android:background="@drawable/edit_text_background"
-            android:hint="PhoneNumber"
-            android:inputType="text|number"
+            android:hint="New Name"
+            android:inputType="textPersonName"
             android:padding="15dp"
             android:requiresFadingEdge="horizontal"
             android:singleLine="true"
@@ -43,10 +43,10 @@
 
 
     <RelativeLayout
-        android:id="@+id/ChangePhoneNumber_button_frame"
+        android:id="@+id/ChangeNamePage_button_frame"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/new_PhoneNumber_to_change_frame"
+        android:layout_below="@+id/new_Name_to_change_frame"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="100dp"
         android:padding="20dp"
@@ -55,7 +55,7 @@
         app:layout_constraintStart_toStartOf="parent">
 
         <Button
-            android:id="@+id/ChangePhoneNumber_button"
+            android:id="@+id/ChangeNamePage_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
