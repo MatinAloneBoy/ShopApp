@@ -17,7 +17,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import com.example.myapplication.HomeActivity;
+import com.example.myapplication.HomeBottomActivity;
 import com.example.myapplication.R;
 import com.example.myapplication.database.UsersDataBase;
 
@@ -66,7 +66,7 @@ public class RegisterFragment extends Fragment {
                 editor.putString(String.valueOf(R.string.profile_type_key),type);
                 editor.putInt(String.valueOf(R.string.profile_phone_number_key),Integer.parseInt(PNBox.getText().toString()));
                 editor.apply();
-                Intent intent= new Intent(getContext(), HomeActivity.class);
+                Intent intent= new Intent(getContext(), HomeBottomActivity.class);
                 startActivity(intent);
             }
         });

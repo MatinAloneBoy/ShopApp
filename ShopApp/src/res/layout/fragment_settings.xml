@@ -7,13 +7,14 @@
     tools:context=".SettingsFragment"
     android:background="@color/backgroundDark">
     <RelativeLayout
-        android:id="@+id/category_fragment_title_frame"
+        android:id="@+id/setting_fragment_title_frame"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="20dp"
         android:layout_alignParentTop="true">
 
         <TextView
+            android:id="@+id/title_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="settings"
@@ -43,7 +44,7 @@
         android:layout_marginBottom="126dp">
 
         <Button
-            android:id="@+id/ChangePhoneNumber"
+            android:id="@+id/ChangePhoneNumberButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="50dp"
@@ -56,7 +57,8 @@
             android:id="@+id/Change_Password_Button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/ChangePhoneNumber"            android:layout_marginTop="50dp"
+            android:layout_below="@+id/ChangePhoneNumberButton"
+            android:layout_marginTop="50dp"
             android:background="@drawable/button_background"
             android:textColor="@color/backgroundDark"
             android:text="Change Password"

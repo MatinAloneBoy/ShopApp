@@ -55,11 +55,10 @@ public class ForgotPassDataBase extends SQLiteOpenHelper {
         }
 
     }
-    public void updateCourses(String pass){
+    public void updateCourses(String pass,String Email){
         SQLiteDatabase db = this.getWritableDatabase();
-        ContentValues values = new ContentValues();
-        values.put(COL_4,pass);
-        db.update(TABLE_NAME,values,"ID =",ID);
+        db.rawQuery("UPDATE USER_DATA SET Password = "+pass+" WHERE Email = "+Email,null);
+
     }
 
 }

@@ -1,6 +1,5 @@
 package com.example.myapplication.login;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,7 +13,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import com.example.myapplication.HomeActivity;
 import com.example.myapplication.R;
 import com.example.myapplication.database.ForgotPassDataBase;
 
@@ -45,8 +43,7 @@ public class ForgetPassFragment extends Fragment {
             public void onClick(View v) {
                 Toast.makeText(getActivity(), "Sending Email", Toast.LENGTH_SHORT).show();
                 fsd=new ForgotPassDataBase(getContext());
-                fsd.readCourses(ForgetEmailBox.getText().toString());
-                fsd.updateCourses(ForgotPassbox.getText().toString());
+                fsd.updateCourses(ForgotPassbox.getText().toString(),ForgetEmailBox.getText().toString());
             }
         });
 

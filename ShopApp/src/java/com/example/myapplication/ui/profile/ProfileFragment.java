@@ -18,6 +18,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
 import com.example.myapplication.R;
@@ -35,6 +36,7 @@ public class ProfileFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater,ViewGroup container, Bundle savedInstanceState) {
         profileViewModel =new ViewModelProvider(this).get(ProfileViewModel.class);
         View view = inflater.inflate(R.layout.fragment_profile,container,false);
+
         Context context = getActivity();
         SharedPreferences sharedPref = context.getSharedPreferences(
                 getString(R.string.profile_file_key), Context.MODE_PRIVATE);
@@ -58,14 +60,14 @@ public class ProfileFragment extends Fragment {
         binding.profileFragmentList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view,int position, long id) {
-                View view2 = inflater.inflate(R.layout.fragment_profile,container,false);
-
+                NavController navController = Navigation.findNavController(getActivity(), R.id.nav_host_fragment_activity_home);
                 switch (position){
                     case 0:
                         Toast.makeText(context, "ID", Toast.LENGTH_SHORT).show();
                         break;
 
                     case 1:
+                        Navigation.findNavController(view).navigate(R.id.action_navigation_profile_to_settingsFragment);
                         Toast.makeText(context, "Settings", Toast.LENGTH_SHORT).show();
                         break;
 
