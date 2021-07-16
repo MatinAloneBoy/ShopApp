@@ -141,7 +141,7 @@ public class LoginFragment extends Fragment {
     }
 
     private void updateUI(GoogleSignInAccount acct) {
-        if (acct!=null){
+        if (!acct.equals(null)){
             String personName = acct.getDisplayName();
             String personGivenName = acct.getGivenName();
             String personFamilyName = acct.getFamilyName();

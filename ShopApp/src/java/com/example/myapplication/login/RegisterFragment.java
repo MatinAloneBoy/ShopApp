@@ -41,13 +41,11 @@ public class RegisterFragment extends Fragment {
         PasswordText=view.findViewById(R.id.new_pass_text);
         UsernameText=view.findViewById(R.id.new_username_text);
         PhoneNumberText=view.findViewById(R.id.new_phoneNumber_text);
-        UserModeText=view.findViewById(R.id.new_userMode_text);
         EmailBox=view.findViewById(R.id.new_email_edit_text);
         PassBox=view.findViewById(R.id.new_pass_edit_text);
         UnBox=view.findViewById(R.id.new_username_edit_text);
         PNBox=view.findViewById(R.id.new_phoneNumber_edit_text);
         registerButton=view.findViewById(R.id.register_button);
-        UserModeSwitch=view.findViewById(R.id.new_userMode_switch);
 
         if(UserModeSwitch.callOnClick()){
             type="NormalUser";

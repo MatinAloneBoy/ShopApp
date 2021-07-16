@@ -50,7 +50,7 @@ public class ProfileFragment extends Fragment {
         binding.profileFragmentNameText.setText(GName);
         binding.profileFragmentEmailText.setText(GMail);
 
-        String List[] = {"#"+GId,"Settings"};
+        String List[] = {"#"+GId.substring(0,5),"Settings","Log out"};
         simpleList = binding.profileFragmentList;
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(getActivity(), R.layout.activity_listview, R.id.textView, List);
         simpleList.setAdapter(arrayAdapter);
@@ -62,11 +62,15 @@ public class ProfileFragment extends Fragment {
 
                 switch (position){
                     case 0:
-                        Toast.makeText(context, "Fuck You", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(context, "ID", Toast.LENGTH_SHORT).show();
                         break;
 
                     case 1:
-                        Navigation.findNavController(view2).navigate(R.id.action_navigation_profile_to_settingsFragment2);
+                        Toast.makeText(context, "Settings", Toast.LENGTH_SHORT).show();
+                        break;
+
+                    case 2:
+                        Toast.makeText(context, "Log out", Toast.LENGTH_SHORT).show();
                         break;
                 }
 
