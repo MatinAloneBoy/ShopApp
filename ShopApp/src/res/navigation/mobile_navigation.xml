@@ -33,16 +33,32 @@
         tools:layout="@layout/fragment_settings" >
         <action
             android:id="@+id/action_settingsFragment_to_changePasswordInSetting"
-            app:destination="@id/changePasswordInSetting" />
+            app:destination="@id/changePasswordInSetting"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
         <action
             android:id="@+id/action_settingsFragment_to_change_PhoneNumber_Page"
-            app:destination="@id/change_PhoneNumber_Page" />
+            app:destination="@id/change_PhoneNumber_Page"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
         <action
             android:id="@+id/action_settingsFragment_to_changeProfilePhotoPage"
-            app:destination="@id/changeProfilePhotoPage" />
+            app:destination="@id/changeProfilePhotoPage"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
         <action
             android:id="@+id/action_settingsFragment_to_changeNamePage"
-            app:destination="@id/changeNamePage" />
+            app:destination="@id/changeNamePage"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
     </fragment>
     <fragment
         android:id="@+id/changeNamePage"
