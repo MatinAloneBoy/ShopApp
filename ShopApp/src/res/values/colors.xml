@@ -9,6 +9,7 @@
     <color name="white">#FFFFFFFF</color>
     <color name="primaryDark">#8C4B00</color>
     <color name="primaryLight">@android:color/holo_orange_dark</color>
+    <color name="accentLight">#FFD500</color>
     <color name="backgroundDark">#353537</color>
     <color name="backgroundLight">#E1E1E1</color>
     <color name="strokeDark">#454545</color>
