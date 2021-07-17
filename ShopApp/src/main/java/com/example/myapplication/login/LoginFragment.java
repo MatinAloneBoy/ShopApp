@@ -142,32 +142,29 @@ public class LoginFragment extends Fragment {
 
     private void updateUI(GoogleSignInAccount acct) {
         if (acct!=null){
+            String personPhoto;
             String personName = acct.getDisplayName();
             String personGivenName = acct.getGivenName();
             String personFamilyName = acct.getFamilyName();
             String personEmail = acct.getEmail();
             String personId = acct.getId();
-            String personPhoto = acct.getPhotoUrl().toString();
+            if(!acct.getPhotoUrl().equals(null)){
+                personPhoto = acct.getPhotoUrl().toString();
 
+            }else {
+                personPhoto ="https://www.pngkey.com/png/full/157-1579943_tracy-mcgrady-png.png";
+
+            }
 
 ///////////////////////////////SharedPreferences
             Context context = getActivity();
-            SharedPreferences sharedPref = context.getSharedPreferences(
-                    getString(R.string.profile_file_key), Context.MODE_PRIVATE);
+            SharedPreferences sharedPref = context.getSharedPreferences(getString(R.string.profile_file_key), Context.MODE_PRIVATE);
             SharedPreferences.Editor editor = sharedPref.edit();
             editor.putString(String.valueOf(R.string.profile_name_key),personName);
             editor.putString(String.valueOf(R.string.profile_email_key),personEmail);
             editor.putString(String.valueOf(R.string.profile_id_key),personId);
             editor.putString(String.valueOf(R.string.profile_photo_key),personPhoto);
             editor.apply();
-            /*Context context = getActivity();
-            SharedPreferences sharedPref = context.getSharedPreferences(getString(R.string.profile_file_key), Context.MODE_PRIVATE);
-            SharedPreferences.Editor editor = sharedPref.edit();
-            editor.putString(getString(R.string.profile_name_key),personName);
-            editor.putString(getString(R.string.profile_email_key),personEmail);
-            editor.putString(getString(R.string.profile_id_key),personId);
-            editor.putString(getString(R.string.profile_photo_key),personPhoto.toString());
-            editor.apply();*/
             us=new UsersDataBase(getContext());
             us.register_user(personName,personEmail,personId+personFamilyName,"NormalUser","-",acct.getPhotoUrl().toString());
             Intent intent= new Intent(getContext(), HomeBottomActivity.class);
@@ -176,7 +173,7 @@ public class LoginFragment extends Fragment {
             Toast.makeText(getActivity(), personName, Toast.LENGTH_SHORT).show();
 
         }else {
-            //Toast.makeText(getActivity(), "Could not sign in with Google", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getActivity(), "Could not sign in with Google", Toast.LENGTH_SHORT).show();
         }
     }
 
