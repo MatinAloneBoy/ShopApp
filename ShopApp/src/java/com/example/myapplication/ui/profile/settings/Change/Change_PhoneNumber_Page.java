@@ -36,7 +36,7 @@ public class Change_PhoneNumber_Page extends Fragment {
     @org.jetbrains.annotations.Nullable
     @Override
     public View onCreateView(@NonNull @NotNull LayoutInflater inflater, @Nullable @org.jetbrains.annotations.Nullable ViewGroup container, @Nullable @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_forget_pass,container,false);
+        View view = inflater.inflate(R.layout.fragment_change__phone_number__page,container,false);
 
         binding = FragmentChangePhoneNumberPageBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
