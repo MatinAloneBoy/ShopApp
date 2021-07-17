@@ -10,7 +10,7 @@ import androidx.annotation.Nullable;
 
 import java.util.ArrayList;
 
-public class ChangeNameDataBase extends SQLiteOpenHelper {
+public class UpdateProfileDataBase extends SQLiteOpenHelper {
 
 
     private static final String DATABASE_NAME = "UserDataBase.db";
@@ -26,7 +26,7 @@ public class ChangeNameDataBase extends SQLiteOpenHelper {
 
 
 
-    public ChangeNameDataBase(@Nullable Context context) {
+    public UpdateProfileDataBase(@Nullable Context context) {
         super(context, DATABASE_NAME, null, 1);
     }
 
@@ -44,10 +44,29 @@ public class ChangeNameDataBase extends SQLiteOpenHelper {
     }
 
 
-    public void updateCourses(String name,String Email){
+    public void updateName(String name,String Email){
         SQLiteDatabase db = this.getWritableDatabase();
-        db.rawQuery("UPDATE USER_DATA SET USERNAME = "+name+" WHERE USERNAME = "+Email,null);
+        db.rawQuery("UPDATE USER_DATA SET USERNAME = "+name+" WHERE Email = "+Email,null);
 
     }
+    public void updatePhoneNumber(String phone,String Email){
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.rawQuery("UPDATE USER_DATA SET PhoneNumber = "+phone+" WHERE Email = "+Email,null);
 
+    }
+    public void updatePassword(String passw,String Email){
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.rawQuery("UPDATE USER_DATA SET PASSWORD = "+passw+" WHERE Email = "+Email,null);
+
+    }
+    public void updateProfilePhoto(String path,String Email){
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.rawQuery("UPDATE USER_DATA SET USER_IMAGE_PATH = "+path+" WHERE Email = "+Email,null);
+
+    }
+    public void updateType(String type,String Email){
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.rawQuery("UPDATE USER_DATA SET Type = "+type+" WHERE Email = "+Email,null);
+
+    }
 }
