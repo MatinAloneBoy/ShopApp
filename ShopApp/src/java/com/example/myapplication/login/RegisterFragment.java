@@ -17,7 +17,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import com.example.myapplication.HomeBottomActivity;
+import com.example.myapplication.ui.home.HomeBottomActivity;
 import com.example.myapplication.R;
 import com.example.myapplication.database.UsersDataBase;
 
@@ -47,10 +47,6 @@ public class RegisterFragment extends Fragment {
         PNBox=view.findViewById(R.id.new_phoneNumber_edit_text);
         registerButton=view.findViewById(R.id.register_button);
 
-        if(UserModeSwitch.callOnClick()){
-            type="NormalUser";
-        }
-        else{type="Seller";}
         us=new UsersDataBase(getContext());
         registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -64,7 +60,7 @@ public class RegisterFragment extends Fragment {
                 editor.putString(String.valueOf(R.string.profile_name_key),UnBox.getText().toString());
                 editor.putString(String.valueOf(R.string.profile_email_key),EmailBox.getText().toString());
                 editor.putString(String.valueOf(R.string.profile_type_key),type);
-                editor.putInt(String.valueOf(R.string.profile_phone_number_key),Integer.parseInt(PNBox.getText().toString()));
+                editor.putInt(String.valueOf(R.string.profile_phone_number_key), Integer.parseInt(PNBox.getText().toString()));
                 editor.apply();
                 Intent intent= new Intent(getContext(), HomeBottomActivity.class);
                 startActivity(intent);

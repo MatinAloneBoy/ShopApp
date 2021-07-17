@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -72,6 +73,7 @@ public class ProfileFragment extends Fragment {
                         break;
 
                     case 2:
+
                         Toast.makeText(context, "Log out", Toast.LENGTH_SHORT).show();
                         break;
                 }
@@ -81,18 +83,15 @@ public class ProfileFragment extends Fragment {
         });
 
 
-        if(!GPhoto.equals(null)){
-            Picasso.get().load(Uri.parse(GPhoto)).into(ProfilePic);
-        }else {
-
-        }
-
+//        Picasso.get().load(GPhoto).into(ProfilePic);
+        Picasso.get().load(Uri.parse(GPhoto)).into(ProfilePic);
+/*
         binding.profileFragmentNameText.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Toast.makeText(context, GPhoto, Toast.LENGTH_SHORT).show();
             }
-        });
+        });*/
         binding.profileFragmentImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

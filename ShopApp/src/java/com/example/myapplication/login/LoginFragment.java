@@ -24,7 +24,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 
-import com.example.myapplication.HomeBottomActivity;
+import com.example.myapplication.ui.home.HomeBottomActivity;
 import com.example.myapplication.R;
 import com.example.myapplication.database.UsersDataBase;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
@@ -141,13 +141,14 @@ public class LoginFragment extends Fragment {
     }
 
     private void updateUI(GoogleSignInAccount acct) {
-        if (!acct.equals(null)){
+        if (acct!=null){
             String personName = acct.getDisplayName();
             String personGivenName = acct.getGivenName();
             String personFamilyName = acct.getFamilyName();
             String personEmail = acct.getEmail();
             String personId = acct.getId();
-            Uri personPhoto = acct.getPhotoUrl();
+            String personPhoto = acct.getPhotoUrl().toString();
+
 
 ///////////////////////////////SharedPreferences
             Context context = getActivity();
@@ -157,7 +158,7 @@ public class LoginFragment extends Fragment {
             editor.putString(String.valueOf(R.string.profile_name_key),personName);
             editor.putString(String.valueOf(R.string.profile_email_key),personEmail);
             editor.putString(String.valueOf(R.string.profile_id_key),personId);
-            editor.putString(String.valueOf(R.string.profile_photo_key),personPhoto.toString());
+            editor.putString(String.valueOf(R.string.profile_photo_key),personPhoto);
             editor.apply();
             /*Context context = getActivity();
             SharedPreferences sharedPref = context.getSharedPreferences(getString(R.string.profile_file_key), Context.MODE_PRIVATE);
