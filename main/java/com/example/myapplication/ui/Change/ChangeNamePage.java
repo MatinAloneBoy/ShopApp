@@ -34,9 +34,9 @@ public class ChangeNamePage extends Fragment {
     @Override
     public View onCreateView(@NonNull @NotNull LayoutInflater inflater, @Nullable @org.jetbrains.annotations.Nullable ViewGroup container, @Nullable @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_forget_pass,container,false);
-        sendNameButton=view.findViewById(R.id.ChangePhoneNumber_button);
-        newNameText=view.findViewById(R.id.new_PhoneNumber_to_change_text);
-        newNameBox=view.findViewById(R.id.new_phoneNumber_to_change_edit_text);
+        sendNameButton=view.findViewById(R.id.ChangeNamePage_button);
+        newNameText=view.findViewById(R.id.new_Name_to_change_text);
+        newNameBox=view.findViewById(R.id.new_Name_to_change_edit_text);
         String mail;
         Context context = getActivity();
         SharedPreferences sharedPref = context.getSharedPreferences(
