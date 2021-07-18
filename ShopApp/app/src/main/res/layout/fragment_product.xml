@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".userUi.home.ProductFragment"
+    android:background="@color/backgroundDark">
+
+
+
+    <RelativeLayout
+        android:id="@+id/product_head_title_frame"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+    <ImageView
+        android:id="@+id/product_image_view"
+        android:layout_centerHorizontal="true"
+        android:layout_width="375dp"
+        android:layout_height="375dp"
+        android:src="@drawable/ic_dashboard_black_24dp"/>
+
+    <TextView
+        android:id="@+id/product_name_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:padding="5dp"
+        android:text="Name"
+        android:textColor="@color/primaryLight"
+        android:layout_marginLeft="20dp"
+        android:textSize="25dp"
+        android:layout_below="@+id/product_image_view" />
+
+    <TextView
+        android:id="@+id/product_seller_name_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:layout_alignParentLeft="true"
+        android:text="Seller Name"
+        android:textColor="@color/accentLight"
+        android:layout_marginLeft="20dp"
+        android:textSize="15dp"
+        android:layout_below="@+id/product_name_text" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="25dp"
+        android:layout_below="@+id/product_head_title_frame">
+
+        <TextView
+            android:id="@+id/product_PhoneNumber_title_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:text="Phone Number :"
+            android:textColor="@color/primaryLight"
+            android:textSize="15dp"
+            />
+
+        <TextView
+            android:id="@+id/product_PhoneNumber_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="200dp"
+            android:layout_toEndOf="@+id/product_PhoneNumber_title_text"
+            android:text="Phone Number"
+            android:textColor="@color/accentLight"
+            android:textSize="15dp" />
+
+        <TextView
+            android:id="@+id/product_price_title_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_alignParentLeft="true"
+            android:text="Price :"
+            android:textColor="@color/primaryLight"
+            android:textSize="15dp"
+            android:layout_below="@+id/product_PhoneNumber_title_text"
+            />
+
+
+        <TextView
+            android:id="@+id/product_price_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="200dp"
+            android:layout_below="@+id/product_PhoneNumber_title_text"
+            android:layout_marginTop="20dp"
+            android:layout_toEndOf="@+id/product_price_title_text"
+            android:text="Price"
+            android:textColor="@color/accentLight"
+            android:textSize="15dp" />
+
+
+
+        <TextView
+            android:id="@+id/product_date_title_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_alignParentLeft="true"
+            android:text="Date :"
+            android:textColor="@color/primaryLight"
+            android:textSize="15dp"
+            android:layout_below="@+id/product_price_title_text"
+            />
+
+        <TextView
+            android:id="@+id/product_date_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="200dp"
+            android:layout_below="@+id/product_price_title_text"
+            android:layout_marginTop="20dp"
+            android:layout_toEndOf="@+id/product_price_title_text"
+            android:text="Date"
+            android:textColor="@color/accentLight"
+            android:textSize="15dp" />
+
+        <TextView
+            android:id="@+id/product_descriptions_title_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_alignParentLeft="true"
+            android:text="descriptions :"
+            android:textColor="@color/primaryLight"
+            android:textSize="15dp"
+            android:layout_below="@+id/product_date_title_text"
+            />
+
+
+        <TextView
+            android:id="@+id/product_descriptions_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="200dp"
+            android:layout_below="@+id/product_descriptions_title_text"
+            android:layout_marginTop="20dp"
+            android:text="descriptions"
+            android:textColor="@color/accentLight"
+            android:textSize="15dp" />
+
+    </RelativeLayout>
+
+
+
+
+
+</RelativeLayout>
