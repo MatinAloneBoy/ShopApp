@@ -1,4 +1,4 @@
-package com.example.myapplication.userUi.profile.settings.Change;
+package com.example.myapplication.ui.profile.settings.Change;
 
 import android.os.Bundle;
 
