@@ -1,4 +1,4 @@
-package com.example.myapplication.database;
+package com.example.myapplication.login;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;

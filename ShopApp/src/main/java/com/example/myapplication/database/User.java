@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 package com.example.myapplication.database;
 
 import androidx.room.ColumnInfo;
@@ -26,3 +27,33 @@ public class User {
         this.imagePath = imagePath;
     }
 }
+=======
+package com.example.myapplication.database;
+
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+
+@Entity
+public class User {
+
+    @ColumnInfo
+    public int id;
+
+    @ColumnInfo
+    public String name;
+
+    @ColumnInfo
+    public String email;
+
+    @ColumnInfo
+    public String imagePath;
+
+
+    public User(int id, String name, String email, String imagePath) {
+        this.id = id;
+        this.name = name;
+        this.email = email;
+        this.imagePath = imagePath;
+    }
+}
+>>>>>>> 46d9c479dfc7ed9c66e29ed55300803775512841
