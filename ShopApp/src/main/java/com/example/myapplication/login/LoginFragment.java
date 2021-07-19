@@ -24,7 +24,6 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 
 import com.example.myapplication.databinding.FragmentLoginBinding;
-import com.example.myapplication.databinding.FragmentProfileBinding;
 import com.example.myapplication.userUi.home.HomeBottomActivity;
 import com.example.myapplication.R;
 import com.example.myapplication.database.UsersDataBase;
@@ -172,6 +171,7 @@ public class LoginFragment extends Fragment {
             editor.putString(String.valueOf(R.string.profile_photo_key),personPhoto);
             editor.apply();
             us=new UsersDataBase(getContext());
+
             us.register_user(personName,personEmail,personId+personFamilyName,"NormalUser","-",acct.getPhotoUrl().toString());
             Intent intent= new Intent(getContext(), HomeBottomActivity.class);
             startActivity(intent);

@@ -7,7 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-import com.example.myapplication.database.product.Products;
+import com.example.myapplication.database.product.ProductDataBase;
 import com.example.myapplication.database.product.Product;
 import com.example.myapplication.database.product.ProductDao;
 import com.example.myapplication.databinding.ActivityAddBinding;
@@ -21,8 +21,8 @@ public class AddActivity extends AppCompatActivity {
     private static final int REQUEST_GET_SINGLE_FILE = 0;
     private ActivityAddBinding binding;
     private String ProductName,ProductPrice,ProductDescription;
-    Products db = Room.databaseBuilder(getApplicationContext(),
-            Products.class, "Products").build();
+    public ProductDataBase db = Room.databaseBuilder(getApplicationContext(),
+            ProductDataBase.class, "ProductDataBase").build();
 
     private static int RESULT_LOAD_IMAGE = 1;
     @Override
