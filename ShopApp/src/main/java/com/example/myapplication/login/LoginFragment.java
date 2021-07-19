@@ -91,12 +91,7 @@ public class LoginFragment extends Fragment {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(binding.editTextEmail.getText().equals("admin")){
-                    Navigation.findNavController(v).navigate(R.id.action_loginFragment_to_adminPage);
-                }
-                else {
-                    Navigation.findNavController(v).navigate(R.id.action_loginFragment_to_adminPage);
-                }
+
             }
         });
 
@@ -123,7 +118,7 @@ public class LoginFragment extends Fragment {
             }
         });
 
-        return root;
+        return view;
     }
 
     @Override
