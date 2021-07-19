@@ -23,7 +23,7 @@ public class UpdateProfileDataBase extends SQLiteOpenHelper {
     private static final String COL_6="NUM_LOGIN";
     private static final String COL_7="PhoneNumber";
     private static final String COL_8="Type";
-
+    private static final String COL_9="Product_Num";
 
 
     public UpdateProfileDataBase(@Nullable Context context) {
@@ -67,6 +67,17 @@ public class UpdateProfileDataBase extends SQLiteOpenHelper {
     public void updateType(String type,String Email){
         SQLiteDatabase db = this.getWritableDatabase();
         db.rawQuery("UPDATE USER_DATA SET Type = "+type+" WHERE Email = "+Email,null);
+
+    }
+    public String readProductNum(String Email){
+        SQLiteDatabase db = this.getReadableDatabase();
+        String s=db.rawQuery("SELECT Product_Num FROM Product WHERE Name IN (:ProductNames)",null).toString();
+        return s;
+    }
+
+    public void updateProductNum(String num,String Email){
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.rawQuery("UPDATE USER_DATA SET Product_Num = "+num+" WHERE Email = "+Email,null);
 
     }
 }

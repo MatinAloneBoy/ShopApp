@@ -171,7 +171,6 @@ public class LoginFragment extends Fragment {
             editor.putString(String.valueOf(R.string.profile_photo_key),personPhoto);
             editor.apply();
             us=new UsersDataBase(getContext());
-
             us.register_user(personName,personEmail,personId+personFamilyName,"NormalUser","-",acct.getPhotoUrl().toString());
             Intent intent= new Intent(getContext(), HomeBottomActivity.class);
             startActivity(intent);

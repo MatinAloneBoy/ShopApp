@@ -20,7 +20,6 @@ import android.widget.TextView;
 import com.example.myapplication.database.product.Product;
 import com.example.myapplication.database.product.ProductDao;
 import com.example.myapplication.database.product.ProductDataBase;
-import com.example.myapplication.database.product.ProductDataBase_Impl;
 import com.example.myapplication.databinding.FragmentAdminAllProductsBinding;
 import com.example.myapplication.databinding.FragmentHomeBinding;
 
@@ -65,6 +64,7 @@ public class AdminAllProductsFragment extends Fragment {
 
             @Override
             public void clearAllTables() {
+
             }
         };
         List<Product>products=productDataBase.productDao().getAll();

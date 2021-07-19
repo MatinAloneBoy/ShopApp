@@ -21,7 +21,7 @@ import androidx.annotation.Nullable;
         private static final String COL_6="NUM_LOGIN";
         private static final String COL_7="PhoneNumber";
         private static final String COL_8="Type";
-
+        private static final String COL_9="Product_Num";
 
         public UsersDataBase(@Nullable Context context) {
             super(context, DATABASE_NAME,null,1);
@@ -47,6 +47,7 @@ import androidx.annotation.Nullable;
             values.put(COL_5,imapath);
             values.put(COL_7,PhoneNum);
             values.put(COL_8,type);
+            values.put(COL_9,"0");
             long result = db.insert(TABLE_NAME,null,values);
             if(result==-1){
                 return false;
