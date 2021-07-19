@@ -9,10 +9,7 @@
         android:roundIcon="@mipmap/ic_shop_logo_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication" >
-        <activity
-            android:name=".AdminHomeBottomActivity"
-            android:label="@string/title_activity_admin_home_bottom" >
-        </activity>
+
         <activity android:name=".userUi.home.Listview" />
         <activity
             android:name=".userUi.home.HomeBottomActivity"

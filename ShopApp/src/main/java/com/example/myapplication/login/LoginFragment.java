@@ -23,6 +23,8 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 
+import com.example.myapplication.databinding.FragmentLoginBinding;
+import com.example.myapplication.databinding.FragmentProfileBinding;
 import com.example.myapplication.userUi.home.HomeBottomActivity;
 import com.example.myapplication.R;
 import com.example.myapplication.database.UsersDataBase;
@@ -58,11 +60,15 @@ public class LoginFragment extends Fragment {
                     }
                 }
             });
+    private FragmentLoginBinding binding;
+
     @Nullable
     @org.jetbrains.annotations.Nullable
     @Override
     public View onCreateView(@NonNull @NotNull LayoutInflater inflater, @Nullable @org.jetbrains.annotations.Nullable ViewGroup container, @Nullable @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
 
+        binding = FragmentLoginBinding.inflate(inflater, container, false);
+        View root = binding.getRoot();
         View view = inflater.inflate(R.layout.fragment_login,container,false);
 
 
@@ -81,15 +87,14 @@ public class LoginFragment extends Fragment {
         register_text=view.findViewById(R.id.new_account);
 
 
+
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(email_edit_text.getText().equals("arian8rezaei@gmail.com")){
+                if(binding.editTextEmail.getText().equals("admin")){
                     Navigation.findNavController(v).navigate(R.id.action_loginFragment_to_adminPage);
-                    Toast.makeText(getActivity(),"Hello Admin", Toast.LENGTH_SHORT).show();
                 }
                 else {
-                    Toast.makeText(getActivity(),email_edit_text.getText(), Toast.LENGTH_SHORT).show();
                     Navigation.findNavController(v).navigate(R.id.action_loginFragment_to_adminPage);
                 }
             }
@@ -118,7 +123,7 @@ public class LoginFragment extends Fragment {
             }
         });
 
-        return view;
+        return root;
     }
 
     @Override
