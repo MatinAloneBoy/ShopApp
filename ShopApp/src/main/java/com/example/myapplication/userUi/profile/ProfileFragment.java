@@ -1,6 +1,7 @@
 package com.example.myapplication.userUi.profile;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
@@ -18,8 +19,10 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
+import com.example.myapplication.AddActivity;
 import com.example.myapplication.R;
 import com.example.myapplication.databinding.FragmentProfileBinding;
+import com.example.myapplication.userUi.home.HomeBottomActivity;
 import com.squareup.picasso.Picasso;
 
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -93,6 +96,13 @@ public class ProfileFragment extends Fragment {
             public void onClick(View v) {
                 Toast.makeText(context, GPhoto, Toast.LENGTH_SHORT).show();
             }
+        });
+
+        binding.addButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent= new Intent(getContext(), AddActivity.class);
+                startActivity(intent);            }
         });
 
         return root;
