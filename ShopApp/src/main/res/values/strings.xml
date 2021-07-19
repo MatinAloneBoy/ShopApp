@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">My Application</string>
+    <!-- Strings related to login -->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome!"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_home_bottom">MainActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_profile">Profile</string>
+    <string name="title_category">Category</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="profile_file_key">Profile Key File</string>
+    <string name="profile_name_key">Profile Name Key</string>
+    <string name="profile_email_key">Profile Email Key</string>
+    <string name="profile_id_key">Profile Id Key</string>
+    <string name="profile_photo_key">Profile Photo Key</string>
+    <string name="profile_type_key">Profile Type Key</string>
+    <string name="profile_phone_number_key">Profile Phone Number Key</string>
+    <string name="title_activity_admin_home_bottom">MainActivity</string>
+    <string name="admin_pass">Fuck Shiri Kiri</string>
+
+
+</resources>
