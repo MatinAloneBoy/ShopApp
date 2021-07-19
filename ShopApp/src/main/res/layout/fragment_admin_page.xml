@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".userUi.profile.settings.SettingsFragment"
+    android:background="@color/backgroundDark">
+    <RelativeLayout
+        android:id="@+id/admin_page_fragment_title_frame"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="20dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="20dp"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/title_section_background">
+
+        <TextView
+            android:id="@+id/admin_title_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/actor"
+            android:textStyle="bold"
+            android:text="Admin home"
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:textColor="@color/backgroundDark"
+            android:textSize="25dp" />
+        <!--<View
+            android:id="@+id/divider"
+            android:layout_width="250dp"
+            android:layout_height="1dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="50dp"
+            android:layout_marginBottom="0dp"
+            android:background="@color/primaryLight" />-->
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/Admin_main_frame"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:padding="30dp"
+        android:layout_below="@+id/admin_page_fragment_title_frame"
+        >
+
+        <RelativeLayout
+            android:id="@+id/total_price_frame"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="20dp"
+            android:background="@drawable/section_background">
+
+            <TextView
+                android:id="@+id/admin_page_fragment_total_price_title_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Total Price"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:textColor="@color/primaryLight"
+                android:textSize="20dp"
+                />
+
+            <TextView
+                android:id="@+id/admin_page_fragment_total_price_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="$Total Price$"
+                android:layout_centerHorizontal="true"
+                android:textColor="@color/accentLight"
+                android:textSize="18dp"
+                android:layout_below="@+id/admin_page_fragment_total_price_title_text"
+                android:layout_marginTop="10dp"
+                />
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:id="@+id/product_list_frame"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_below="@+id/total_price_frame"
+            android:background="@drawable/section_background">
+
+            <TextView
+                android:id="@+id/admin_page_fragment_product_list_title_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="All Product List"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:textColor="@color/primaryLight"
+                android:textSize="20dp"
+                />
+
+            <Button
+                android:id="@+id/product_list_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/admin_page_fragment_product_list_title_text"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="25dp"
+                android:background="@drawable/admin_button_background"
+                android:backgroundTint="@color/accentLight"
+                android:backgroundTintMode="multiply"
+                android:text="Show all products"
+                android:textColor="@color/backgroundDark"
+                app:iconTint="@color/accentLight" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/seller_list_frame"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_below="@+id/product_list_frame"
+            android:background="@drawable/section_background">
+
+            <TextView
+                android:id="@+id/admin_page_fragment_seller_list_title_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="All Product List"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:textColor="@color/primaryLight"
+                android:textSize="20dp"
+                />
+
+            <Button
+                android:id="@+id/seller_list_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/admin_page_fragment_seller_list_title_text"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="25dp"
+                android:background="@drawable/admin_button_background"
+                android:backgroundTint="@color/accentLight"
+                android:backgroundTintMode="multiply"
+                android:text="Show all products"
+                android:textColor="@color/backgroundDark"
+                app:iconTint="@color/accentLight" />
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:id="@+id/best_seller_frame"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_below="@+id/seller_list_frame"
+            android:background="@drawable/section_background">
+
+            <TextView
+                android:id="@+id/admin_page_fragment_best_seller_title_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Best Seller"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:textColor="@color/primaryLight"
+                android:textSize="20dp"
+                />
+
+            <TextView
+                android:id="@+id/admin_page_fragment_best_seller_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="$Best Seller$"
+                android:layout_centerHorizontal="true"
+                android:textColor="@color/accentLight"
+                android:textSize="18dp"
+                android:layout_below="@+id/admin_page_fragment_best_seller_title_text"
+                android:layout_marginTop="10dp"
+                />
+
+
+
+    </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/best_seller_total_price_frame"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_below="@+id/best_seller_frame"
+            android:background="@drawable/section_background">
+
+            <TextView
+                android:id="@+id/admin_page_fragment_best_seller_total_price_title_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Best Seller Total Price"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:textColor="@color/primaryLight"
+                android:textSize="20dp"
+                />
+
+            <TextView
+                android:id="@+id/admin_page_fragment_best_seller_total_price_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="$Best Seller Total Price$"
+                android:layout_centerHorizontal="true"
+                android:textColor="@color/accentLight"
+                android:textSize="18dp"
+                android:layout_below="@+id/admin_page_fragment_best_seller_total_price_title_text"
+                android:layout_marginTop="10dp"
+                />
+        </RelativeLayout>
+    </RelativeLayout>
+</RelativeLayout>
