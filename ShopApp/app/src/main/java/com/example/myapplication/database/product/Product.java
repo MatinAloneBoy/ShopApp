@@ -1,13 +1,9 @@
 package com.example.myapplication.database.product;
 
-
-import android.net.Uri;
-
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
-import java.sql.Date;
 
 @Entity
 public class Product {
@@ -16,28 +12,40 @@ public class Product {
     @ColumnInfo(name = "ID")
     public int ID;
 
-    @ColumnInfo(name = "SellerName")
-    public String SellerName;
-
     @ColumnInfo(name = "Name")
     public String Name;
 
-    @ColumnInfo(name = "PhoneNumber")
-    public int PhoneNumber;
+    @ColumnInfo(name = "Group")
+    public String Group;
 
     @ColumnInfo(name = "PhotoUrl")
-    public String PhotoURL;
+    public String PhotoUrl;
+
+    @ColumnInfo(name = "SellerName")
+    public String SellerName;
+
+    @ColumnInfo(name = "SellerPhone")
+    public String SellerPhone;
+
+    @ColumnInfo(name = "Price")
+    public int Price;
 
     @ColumnInfo(name = "Date")
     public String Date;
 
+    @ColumnInfo(name = "Description")
+    public String Description;
 
-    public Product(int ID, String SellerName, String Name, int PhoneNumber, String PhotoURL, String Date) {
+
+    public Product(int ID, String Name, String Group, String PhotoUrl, String SellerName, String SellerPhone, int Price, String Date, String Description) {
         this.ID = ID;
-        SellerName = SellerName;
-        Name = Name;
-        PhoneNumber = PhoneNumber;
-        PhotoURL = PhotoURL;
+        this.Name = Name;
+        this.Group = Group;
+        this.PhotoUrl = PhotoUrl;
+        this.SellerName = SellerName;
+        this.SellerPhone = SellerPhone;
+        this.Price = Price;
         this.Date = Date;
+        this.Description = Description;
     }
 }

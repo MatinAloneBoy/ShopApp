@@ -24,28 +24,35 @@
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
             app:popExitAnim="@anim/slide_out_right"/>
-    </fragment>
-
-    <fragment
-        android:id="@+id/registerFragment"
-        android:name="com.example.myapplication.login.RegisterFragment"
-        android:label="RegisterFragment" >
         <action
-            android:id="@+id/action_registerFragment_to_homeActivity"
-            app:destination="@id/homeActivity"
+            android:id="@+id/action_loginFragment_to_adminPage"
+            app:destination="@id/adminPage"
             app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
             app:popExitAnim="@anim/slide_out_right"/>
     </fragment>
+
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="com.example.myapplication.login.RegisterFragment"
+        android:label="RegisterFragment" />
     <fragment
         android:id="@+id/forgetPassFragment"
         android:name="com.example.myapplication.login.ForgetPassFragment"
         android:label="ForgetPassFragment" />
+    <fragment
+        android:id="@+id/adminPage"
+        android:name="com.example.myapplication.adminPage.AdminPage"
+        android:label="AdminPage" >
+        <action
+            android:id="@+id/action_adminPage_to_adminAllProductsFragment"
+            app:destination="@id/adminAllProductsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/adminAllProductsFragment"
+        android:name="com.example.myapplication.adminPage.AdminAllProductsFragment"
+        android:label="fragment_admin_all_products"
+        tools:layout="@layout/fragment_admin_all_products" />
 
-    <activity
-        android:id="@+id/homeActivity"
-        android:name="com.example.myapplication.HomeActivity"
-        android:label="activity_home"
-        tools:layout="@layout/activity_home" />
 </navigation>

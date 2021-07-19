@@ -25,5 +25,7 @@
     <string name="profile_type_key">Profile Type Key</string>
     <string name="profile_phone_number_key">Profile Phone Number Key</string>
     <string name="title_activity_admin_home_bottom">MainActivity</string>
+    <string name="admin_pass">Fuck Shiri Kiri</string>
+
 
 </resources>

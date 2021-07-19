@@ -83,7 +83,6 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
             android:background="@drawable/edit_text_background"
-            android:editable="true"
             android:hint="Email"
             android:inputType="textEmailAddress"
             android:padding="15dp"
@@ -179,6 +178,7 @@
             android:layout_marginTop="25dp"
             android:textColor="#353535"
             android:visibility="visible"
+            android:textAlignment="center"
             app:layout_constraintStart_toStartOf="parent" />
 
 

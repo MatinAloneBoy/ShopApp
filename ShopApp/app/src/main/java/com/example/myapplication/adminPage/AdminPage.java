@@ -5,6 +5,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -12,9 +13,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.myapplication.R;
 import com.example.myapplication.database.product.Product;
+import com.example.myapplication.databinding.FragmentAdminPageBinding;
 import com.example.myapplication.databinding.FragmentHomeBinding;
 import com.example.myapplication.userUi.home.HomeAdapter;
 import com.example.myapplication.userUi.home.HomeViewModel;
@@ -25,20 +28,22 @@ import java.util.List;
 
 public class AdminPage extends Fragment {
 
-    private FragmentHomeBinding binding;
-    private TextView txtview;
+    private FragmentAdminPageBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        binding = FragmentHomeBinding.inflate(inflater, container, false);
+        binding = FragmentAdminPageBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
-        RecyclerView recyclerView=binding.homeRecyclerview;
-        txtview= recyclerView.findViewById(R.id.Count_Product_text);
-        List<Product> products=new ArrayList<>();
 
-        txtview.setText(products.size());
-        AdminAdapter adminAdapter=new AdminAdapter(products);
-        recyclerView.setAdapter(adminAdapter);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+
+
+        binding.productListButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getActivity(), "All Product List", Toast.LENGTH_SHORT).show();
+                Navigation.findNavController(view).navigate(R.id.action_adminPage_to_adminAllProductsFragment);
+            }
+        });
+
         return root;
     }
 
