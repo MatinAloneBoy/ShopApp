@@ -130,7 +130,7 @@
                 android:id="@+id/admin_page_fragment_seller_list_title_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="All Product List"
+                android:text="All Sellers List"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
                 android:textColor="@color/primaryLight"
@@ -147,7 +147,7 @@
                 android:background="@drawable/admin_button_background"
                 android:backgroundTint="@color/accentLight"
                 android:backgroundTintMode="multiply"
-                android:text="Show all products"
+                android:text="Show all sellers"
                 android:textColor="@color/backgroundDark"
                 app:iconTint="@color/accentLight" />
 

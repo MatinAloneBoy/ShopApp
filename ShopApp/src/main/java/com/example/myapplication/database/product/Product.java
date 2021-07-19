@@ -8,6 +8,8 @@ import androidx.room.PrimaryKey;
 @Entity
 public class Product {
 
+    public String tableProduct;
+
     @PrimaryKey
     @ColumnInfo(name = "ID")
     public int ID;
