@@ -145,22 +145,22 @@ public class LoginFragment extends Fragment {
         }
     }
 
-    private void updateUI(GoogleSignInAccount acct) {
-        if (acct!=null){
+    private void updateUI(GoogleSignInAccount account) {
+        if (account!=null){
             String personPhoto;
-            String personName = acct.getDisplayName();
-            String personGivenName = acct.getGivenName();
-            String personFamilyName = acct.getFamilyName();
-            String personEmail = acct.getEmail();
-            String personId = acct.getId();
-            if(!acct.getPhotoUrl().equals(null)){
-                personPhoto = acct.getPhotoUrl().toString();
+            String personName = account.getDisplayName();
+            String personGivenName = account.getGivenName();
+            String personFamilyName = account.getFamilyName();
+            String personEmail = account.getEmail();
+            String personId = account.getId();
+            if(!account.getPhotoUrl().equals(null)){
+                personPhoto = account.getPhotoUrl().toString();
 
             }else {
                 personPhoto ="https://www.pngkey.com/png/full/157-1579943_tracy-mcgrady-png.png";
 
             }
-
+            getActivity().finish();
 ///////////////////////////////SharedPreferences
             Context context = getActivity();
             SharedPreferences sharedPref = context.getSharedPreferences(getString(R.string.profile_file_key), Context.MODE_PRIVATE);
@@ -171,10 +171,9 @@ public class LoginFragment extends Fragment {
             editor.putString(String.valueOf(R.string.profile_photo_key),personPhoto);
             editor.apply();
             us=new UsersDataBase(getContext());
-            us.register_user(personName,personEmail,personId+personFamilyName,"NormalUser","-",acct.getPhotoUrl().toString());
+            us.register_user(personName,personEmail,personId+personFamilyName,"NormalUser","-",account.getPhotoUrl().toString());
             Intent intent= new Intent(getContext(), HomeBottomActivity.class);
             startActivity(intent);
-            getActivity().finish();
             Toast.makeText(getActivity(), personName, Toast.LENGTH_SHORT).show();
 
         }else {

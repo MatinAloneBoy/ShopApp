@@ -2,13 +2,12 @@ package com.example.myapplication.database.product;
 
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
+import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
 
 @Entity
 public class Product {
-
-    public String tableProduct;
 
     @PrimaryKey
     @ColumnInfo(name = "ID")

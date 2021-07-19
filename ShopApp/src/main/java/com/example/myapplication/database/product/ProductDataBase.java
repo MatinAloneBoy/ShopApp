@@ -12,14 +12,14 @@ import static okhttp3.internal.Internal.instance;
 public abstract class ProductDataBase extends RoomDatabase {
     public abstract ProductDao productDao();
     private static final String DB_NAME = "product_db";
-    private static ProductDataBase Instance;
+    private static ProductDataBase instance;
 
     public static synchronized ProductDataBase getInstance(Context context) {
-        if (Instance == null) {
-            Instance = Room.databaseBuilder(context,ProductDataBase.class,
+        if (instance == null) {
+            instance = Room.databaseBuilder(context.getApplicationContext(),ProductDataBase.class,
                     DB_NAME).fallbackToDestructiveMigration().build();
         }
 
-        return Instance;
+        return instance;
     }
 }

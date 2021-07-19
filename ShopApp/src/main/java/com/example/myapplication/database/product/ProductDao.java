@@ -15,7 +15,7 @@ import java.util.List;
 public interface ProductDao {
 
     @Query("INSERT INTO Product VALUES(:ID,:Name,:Group,:PhotoUrl,:SellerName,:SellerPhone,:Price,:Date,:Description)")
-    void insert(int ID,String Name,String Group,String PhotoUrl,String SellerName,String SellerPhone,int Price,String Date,String Description);
+    void insert(int ID, String Name, String Group, String PhotoUrl, String SellerName, String SellerPhone, int Price, String Date, String Description);
 
 
     @Query("SELECT * FROM Product")
