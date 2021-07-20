@@ -15,24 +15,39 @@
         android:padding="30dp"
         android:layout_alignParentTop="true">
 
-        <SearchView
-            android:id="@+id/searchView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:background="@drawable/button_background"
-            android:iconifiedByDefault="false"
-            android:queryHint="Search Here" />
 
-        <ListView
+
+        <EditText
+            android:id="@+id/search_edit_text"
+            android:background="@drawable/button_background"
+            android:layout_alignParentTop="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:hint="Search Here"
+            android:textSize="20dp"
+            android:inputType="text"
+            android:padding="10dp"
+            android:singleLine="true"
+            android:textAlignment="center"
+            android:textColor="@color/textDark"
+            android:textColorHint="#757575"
+            />
+
+
+
+        <RelativeLayout
+            android:layout_below="@+id/search_edit_text"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/lv1"
-            android:divider="#202020"
-            android:layout_marginTop="10dp"
-            android:dividerHeight="1dp"
-            android:layout_below="@+id/searchView"/>
+            android:padding="10dp"
+            >
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/search_recyclerview"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
+        </RelativeLayout>
 
 
 

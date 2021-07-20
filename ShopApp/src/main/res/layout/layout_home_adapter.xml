@@ -13,24 +13,27 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:padding="30dp">
+
         <TextView
             android:id="@+id/product_title"
-            android:text="Name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:lines="2"
+            android:maxLines="2"
+            android:text="Name"
             android:textColor="@color/primaryLight"
-            android:textSize="18sp"/>
+            android:textSize="18sp" />
         <TextView
             android:id="@+id/product_view_due"
             android:text="Seller name"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="20dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/product_title"
             android:textColor="@color/primaryLight"
             android:textSize="12sp"/>
 
-        <TextView
+        <!--<TextView
             android:id="@+id/product_price_text_view"
             android:text="Price"
             android:layout_marginTop="10dp"
@@ -38,7 +41,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/product_view_due"
             android:textColor="@color/accentLight"
-            android:textSize="12sp"/>
+            android:textSize="12sp"/>-->
 
         <ImageView
             android:id="@+id/product_image"

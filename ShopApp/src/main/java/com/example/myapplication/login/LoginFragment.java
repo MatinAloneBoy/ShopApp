@@ -24,6 +24,7 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 
 import com.example.myapplication.database.Room.User.User;
+import com.example.myapplication.database.Room.User.product.Product;
 import com.example.myapplication.database.repository.Repository;
 import com.example.myapplication.database.repository.RepositoryCallback;
 import com.example.myapplication.database.repository.Result;
@@ -40,6 +41,9 @@ import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.Task;
 
 import org.jetbrains.annotations.NotNull;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class LoginFragment extends Fragment {
 
@@ -101,11 +105,45 @@ public class LoginFragment extends Fragment {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                boolean isExist=true;
+                List<User> users=new ArrayList<>();
+
+                Repository.getInstance(getContext()).getAllUsers(new RepositoryCallback<List<User>>() {
+                    @Override
+                    public void onComplete(Result<List<User>> result) {
+                        if(result instanceof Result.Success){
+                            users.addAll(((Result.Success<List<User>>)result).data);
+
+                        }else if(result instanceof Result.Error){
+                            Toast.makeText(getContext(), "Error", Toast.LENGTH_SHORT).show();
+                        }
+
+                    }
+                });
+
+                for(User user:users){
+                    if(user.email.equals(email_edit_text.getText().toString())&&
+                            user.password.equals(password_edit_text.getText().toString())){
+                        Context context = getActivity();
+                        SharedPreferences sharedPref = context.getSharedPreferences(getString(R.string.profile_file_key), Context.MODE_PRIVATE);
+                        SharedPreferences.Editor editor = sharedPref.edit();
+                        editor.putString(String.valueOf(R.string.profile_name_key),user.name);
+                        editor.putString(String.valueOf(R.string.profile_email_key),user.email);
+                        editor.putString(String.valueOf(R.string.profile_photo_key),user.imagePath);
+                        editor.apply();
+                        isExist=true;
+
+                    }
+                    else {
+                        isExist=false;
+                    }
+                }
                 if(email_edit_text.getText().toString().equals("admin")){
                     Navigation.findNavController(view).navigate(R.id.action_loginFragment_to_adminPage);
                     Toast.makeText(getContext(), "Hello Admin", Toast.LENGTH_SHORT).show();
                 }
-                else if(us.check_user(email_edit_text.getText().toString().trim(),password_edit_text.getText().toString().trim())) {
+                else if(isExist) {
                     Intent intent= new Intent(getContext(), HomeBottomActivity.class);
                     startActivity(intent);
                 }
