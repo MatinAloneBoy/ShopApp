@@ -48,11 +48,19 @@
         <action
             android:id="@+id/action_adminPage_to_adminAllProductsFragment"
             app:destination="@id/adminAllProductsFragment" />
+        <action
+            android:id="@+id/action_adminPage_to_showSellersFragment"
+            app:destination="@id/showSellersFragment" />
     </fragment>
     <fragment
         android:id="@+id/adminAllProductsFragment"
         android:name="com.example.myapplication.adminPage.AdminAllProductsFragment"
         android:label="fragment_admin_all_products"
         tools:layout="@layout/fragment_admin_all_products" />
+    <fragment
+        android:id="@+id/showSellersFragment"
+        android:name="com.example.myapplication.ShowSellersFragment"
+        android:label="fragment_show_sellers"
+        tools:layout="@layout/fragment_show_sellers" />
 
 </navigation>
