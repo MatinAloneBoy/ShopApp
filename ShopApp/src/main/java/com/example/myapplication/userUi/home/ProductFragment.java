@@ -9,7 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import com.example.myapplication.database.product.Product;
+import com.example.myapplication.database.Room.User.product.Product;
 import com.example.myapplication.databinding.FragmentProfileBinding;
 
 import org.jetbrains.annotations.NotNull;

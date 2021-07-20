@@ -1,14 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".userUi.profile.settings.changeProfilePhotoPage">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/backgroundDark">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <RelativeLayout
+        android:id="@+id/change_photo_frame"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="300dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20dp"
+        android:padding="30dp">
 
-</FrameLayout>
+        <ImageView
+            android:id="@+id/profile_photo_change"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_baseline_add_circle"
+            android:background="@drawable/edit_text_background"/>
+
+    </RelativeLayout>
+
+    <Button
+        android:layout_below="@+id/change_photo_frame"
+        android:id="@+id/ChangePhoto_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:background="@drawable/button_background"
+        android:text="Change"
+        android:textAlignment="center"
+        android:textColor="#353535"
+        android:visibility="visible"
+        app:backgroundTint="@color/white"
+        app:backgroundTintMode="multiply"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+</RelativeLayout>

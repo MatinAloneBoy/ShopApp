@@ -12,10 +12,10 @@
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/navigation_category"
-        android:name="com.example.myapplication.userUi.category.CategoryFragment"
-        android:label="Category"
-        tools:layout="@layout/fragment_category" />
+        android:id="@+id/navigation_search"
+        android:name="com.example.myapplication.userUi.search.SearchFragment"
+        android:label="search"
+        tools:layout="@layout/fragment_search" />
 
     <fragment
         android:id="@+id/navigation_profile"
@@ -89,7 +89,7 @@
         android:label="changeProfilePhotoPage" />
     <fragment
         android:id="@+id/addFragment"
-        android:name="com.example.myapplication.AddFragment"
+        android:name="com.example.myapplication.userUi.profile.Add.AddFragment"
         android:label="fragment_add"
         tools:layout="@layout/fragment_add" />
 </navigation>

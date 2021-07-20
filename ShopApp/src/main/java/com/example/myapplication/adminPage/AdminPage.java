@@ -4,26 +4,15 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.myapplication.R;
-import com.example.myapplication.database.product.Product;
 import com.example.myapplication.databinding.FragmentAdminPageBinding;
-import com.example.myapplication.databinding.FragmentHomeBinding;
-import com.example.myapplication.userUi.home.HomeAdapter;
-import com.example.myapplication.userUi.home.HomeViewModel;
-
-import java.util.ArrayList;
-import java.util.List;
 
 
 public class AdminPage extends Fragment {

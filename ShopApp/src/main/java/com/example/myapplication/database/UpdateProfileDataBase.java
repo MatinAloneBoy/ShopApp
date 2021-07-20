@@ -13,7 +13,7 @@ import java.util.ArrayList;
 public class UpdateProfileDataBase extends SQLiteOpenHelper {
 
 
-    private static final String DATABASE_NAME = "UserDataBase.db";
+    private static final String DATABASE_NAME = "UserDataBaseR.db";
     private static final String TABLE_NAME = "USER_DATA";
     private static final String COL_1="ID";
     private static final String COL_2="USERNAME";
@@ -23,7 +23,7 @@ public class UpdateProfileDataBase extends SQLiteOpenHelper {
     private static final String COL_6="NUM_LOGIN";
     private static final String COL_7="PhoneNumber";
     private static final String COL_8="Type";
-    private static final String COL_9="Product_Num";
+
 
 
     public UpdateProfileDataBase(@Nullable Context context) {

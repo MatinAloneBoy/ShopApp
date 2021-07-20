@@ -11,7 +11,7 @@ import androidx.annotation.Nullable;
 
     public class UsersDataBase extends SQLiteOpenHelper {
 
-        private static final String DATABASE_NAME="UserDataBase.db";
+        private static final String DATABASE_NAME="UserDataBaseR.db";
         private static final String TABLE_NAME="USER_DATA";
         private static final String COL_1="ID";
         private static final String COL_2="USERNAME";
@@ -21,7 +21,7 @@ import androidx.annotation.Nullable;
         private static final String COL_6="NUM_LOGIN";
         private static final String COL_7="PhoneNumber";
         private static final String COL_8="Type";
-        private static final String COL_9="Product_Num";
+
 
         public UsersDataBase(@Nullable Context context) {
             super(context, DATABASE_NAME,null,1);
@@ -47,7 +47,6 @@ import androidx.annotation.Nullable;
             values.put(COL_5,imapath);
             values.put(COL_7,PhoneNum);
             values.put(COL_8,type);
-            values.put(COL_9,"0");
             long result = db.insert(TABLE_NAME,null,values);
             if(result==-1){
                 return false;
@@ -58,19 +57,15 @@ import androidx.annotation.Nullable;
             }
         }
         public boolean check_user(String email,String password){
-            SQLiteDatabase db = this.getWritableDatabase();
-            String [] columns = { COL_1 };
-            String selection = COL_3+"=?"+" and "+COL_4+"=?";
-            String [] selectionargs = { email , password};
-            Cursor cursor = db.query(TABLE_NAME,columns,selection,selectionargs,null,null,null);
-            int count = cursor.getCount();
+            String[] a1=email.split("@");
+            SQLiteDatabase db = this.getReadableDatabase();
+            String pass = db.rawQuery("SELECT PASSWORD FROM USER_DATA WHERE EMAIL LIKE :emial LIMIT 1" ,null).toString();
+//            String pass=cursor.getString(4);
             db.close();
-            cursor.close();
-            if(count>0){
-
+//            cursor.close();
+            if (password.contains(pass)){
                 return true;
-            }
-            else{
+            }else {
                 return false;
             }
         }

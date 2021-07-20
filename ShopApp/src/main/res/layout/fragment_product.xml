@@ -144,10 +144,12 @@
             android:id="@+id/product_descriptions_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/product_descriptions_title_text"
             android:layout_marginStart="10dp"
             android:layout_marginLeft="200dp"
-            android:layout_below="@+id/product_descriptions_title_text"
             android:layout_marginTop="20dp"
+            android:maxLines="5"
+            android:minLines="1"
             android:text="descriptions"
             android:textColor="@color/accentLight"
             android:textSize="15dp" />

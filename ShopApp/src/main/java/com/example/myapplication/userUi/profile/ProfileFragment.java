@@ -19,16 +19,20 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
-import com.example.myapplication.AddActivity;
+import com.example.myapplication.userUi.profile.Add.AddActivity;
 import com.example.myapplication.R;
 import com.example.myapplication.databinding.FragmentProfileBinding;
-import com.example.myapplication.userUi.home.HomeBottomActivity;
+import com.example.myapplication.login.LoginActivity;
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInClient;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.squareup.picasso.Picasso;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class ProfileFragment extends Fragment {
 
+    private GoogleSignInClient mGoogleSignInClient;
     private ProfileViewModel profileViewModel;
     private FragmentProfileBinding binding;
     CircleImageView ProfilePic;
@@ -47,6 +51,12 @@ public class ProfileFragment extends Fragment {
 
         binding = FragmentProfileBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
+
+        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestEmail()
+                .build();
+        mGoogleSignInClient = GoogleSignIn.getClient(getActivity(), gso);
+
 
         ProfilePic=binding.profileFragmentImage;
         binding.profileFragmentNameText.setText(GName);
@@ -72,7 +82,19 @@ public class ProfileFragment extends Fragment {
                         break;
 
                     case 2:
-                        
+                        signOut();
+                        Intent intent= new Intent(getContext(), LoginActivity.class);
+                        startActivity(intent);
+                        Context context = getActivity();
+                        SharedPreferences sharedPref = context.getSharedPreferences(
+                                getString(R.string.profile_file_key), Context.MODE_PRIVATE);
+                        SharedPreferences.Editor editor = sharedPref.edit();
+                        editor.putString(String.valueOf(R.string.profile_name_key),"name");
+                        editor.putString(String.valueOf(R.string.profile_email_key),"email");
+                        editor.putString(String.valueOf(R.string.profile_type_key),"type");
+                        editor.putString(String.valueOf(R.string.profile_phone_number_key),"pn");
+                        editor.putString(String.valueOf(R.string.profile_id_key),"id");
+                        editor.apply();
                         Toast.makeText(context, "Log out", Toast.LENGTH_SHORT).show();
                         break;
                 }
@@ -102,7 +124,8 @@ public class ProfileFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent= new Intent(getContext(), AddActivity.class);
-                startActivity(intent);            }
+                startActivity(intent);
+            }
         });
 
         return root;
@@ -112,5 +135,8 @@ public class ProfileFragment extends Fragment {
     public void onDestroyView() {
         super.onDestroyView();
         binding = null;
+    }
+    private void signOut() {
+        mGoogleSignInClient.signOut();
     }
 }

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/backgroundDark"
+    tools:context=".userUi.search.SearchFragment">
+
+
+    <RelativeLayout
+        android:id="@+id/category_fragment_title_frame"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="30dp"
+        android:layout_alignParentTop="true">
+
+        <SearchView
+            android:id="@+id/searchView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/button_background"
+            android:iconifiedByDefault="false"
+            android:queryHint="Search Here" />
+
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/lv1"
+            android:divider="#202020"
+            android:layout_marginTop="10dp"
+            android:dividerHeight="1dp"
+            android:layout_below="@+id/searchView"/>
+
+
+
+    </RelativeLayout>
+
+
+
+
+</RelativeLayout>

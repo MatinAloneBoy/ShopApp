@@ -13,7 +13,7 @@ import java.util.ArrayList;
 public class ForgotPassDataBase extends SQLiteOpenHelper {
 
 
-    private static final String DATABASE_NAME = "UserDataBase.db";
+    private static final String DATABASE_NAME = "UserDataBaseR.db";
     private static final String TABLE_NAME = "USER_DATA";
     private static final String COL_1="ID";
     private static final String COL_2="USERNAME";

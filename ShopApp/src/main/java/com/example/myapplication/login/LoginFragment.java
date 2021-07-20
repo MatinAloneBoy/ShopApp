@@ -23,6 +23,10 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 
+import com.example.myapplication.database.Room.User.User;
+import com.example.myapplication.database.repository.Repository;
+import com.example.myapplication.database.repository.RepositoryCallback;
+import com.example.myapplication.database.repository.Result;
 import com.example.myapplication.databinding.FragmentLoginBinding;
 import com.example.myapplication.userUi.home.HomeBottomActivity;
 import com.example.myapplication.R;
@@ -84,12 +88,33 @@ public class LoginFragment extends Fragment {
         signInButton= view.findViewById(R.id.sign_in_button);
         signInButton.setSize(SignInButton.SIZE_ICON_ONLY);
         register_text=view.findViewById(R.id.new_account);
+        RepositoryCallback<Void> callback =new RepositoryCallback<Void>() {
+            @Override
+            public void onComplete(Result<Void> result) {
+                if(result instanceof Result.Success){
+                    Toast.makeText(getContext(), "Success", Toast.LENGTH_SHORT).show();
+                }
+            }
+        };
 
-
-
+        us=new UsersDataBase(getContext());
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(email_edit_text.getText().toString().equals("admin")&&
+                        password_edit_text.getText().toString().equals("admin")){
+                    Navigation.findNavController(view).navigate(R.id.action_loginFragment_to_adminPage);
+                    Toast.makeText(getContext(), "Hello Admin", Toast.LENGTH_SHORT).show();
+                }
+                else if(us.check_user(email_edit_text.getText().toString().trim(),password_edit_text.getText().toString().trim())) {
+                    Intent intent= new Intent(getContext(), HomeBottomActivity.class);
+                    startActivity(intent);
+                }
+                else {
+                    error_text.setText("email or password is not valid");
+                    Toast.makeText(getContext(), email_edit_text.getText().toString()+"  "+password_edit_text.getText().toString(), Toast.LENGTH_SHORT).show();
+
+                }
 
             }
         });
@@ -147,6 +172,17 @@ public class LoginFragment extends Fragment {
 
     private void updateUI(GoogleSignInAccount account) {
         if (account!=null){
+            RepositoryCallback<Void> callback =new RepositoryCallback<Void>() {
+                @Override
+                public void onComplete(Result<Void> result) {
+                    if(result instanceof Result.Success){
+//                        Toast.makeText(getContext(), "Success", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            };
+
+
+
             String personPhoto;
             String personName = account.getDisplayName();
             String personGivenName = account.getGivenName();
@@ -170,14 +206,15 @@ public class LoginFragment extends Fragment {
             editor.putString(String.valueOf(R.string.profile_id_key),personId);
             editor.putString(String.valueOf(R.string.profile_photo_key),personPhoto);
             editor.apply();
-            us=new UsersDataBase(getContext());
-            us.register_user(personName,personEmail,personId+personFamilyName,"NormalUser","-",account.getPhotoUrl().toString());
+            User user=new User(personName,personEmail,personId+personFamilyName,"",personPhoto);
+            Repository.getInstance(getContext()).insertUser(user,callback);
+
             Intent intent= new Intent(getContext(), HomeBottomActivity.class);
             startActivity(intent);
             Toast.makeText(getActivity(), personName, Toast.LENGTH_SHORT).show();
 
         }else {
-            Toast.makeText(getActivity(), "Could not sign in with Google", Toast.LENGTH_SHORT).show();
+//            Toast.makeText(getActivity(), "Could not sign in with Google", Toast.LENGTH_SHORT).show();
         }
     }
 

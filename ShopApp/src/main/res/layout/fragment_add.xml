@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AddActivity"
+    tools:context=".userUi.profile.Add.AddActivity"
     android:background="@color/backgroundDark">
 
 
@@ -43,12 +43,26 @@
             android:textColor="@color/textDark"
             android:textColorHint="#757575" />
 
+        <EditText
+            android:id="@+id/product_seller_phone_number"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/product_price"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/edit_text_background"
+            android:hint="Phone Number"
+            android:padding="10dp"
+            android:singleLine="true"
+            android:textAlignment="center"
+            android:textColor="@color/textDark"
+            android:textColorHint="#757575" />
+
 
         <EditText
             android:id="@+id/product_descriptions"
             android:layout_width="match_parent"
             android:layout_height="150dp"
-            android:layout_below="@+id/product_price"
+            android:layout_below="@+id/product_seller_phone_number"
             android:layout_marginTop="20dp"
             android:background="@drawable/edit_text_background"
             android:hint="Descriptions"
@@ -84,7 +98,6 @@
         android:layout_above="@+id/add_frame_bottom"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="20dp"
         android:padding="30dp">
 
         <ImageView
@@ -93,7 +106,7 @@
             android:layout_height="match_parent"
             android:src="@drawable/ic_baseline_add_circle"
             android:background="@drawable/edit_text_background"/>
-        <Button
+        <!--<Button
             android:id="@+id/add_photo_button"
             android:layout_width="50dp"
             android:layout_height="50dp"
@@ -106,7 +119,7 @@
             android:background="@drawable/button_background"
             android:layout_alignParentRight="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginBottom="10dp"/>
+            android:layout_marginBottom="10dp"/>-->
 
     </RelativeLayout>
 

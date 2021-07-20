@@ -9,8 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.myapplication.R;
-import com.example.myapplication.database.product.Product;
-import com.example.myapplication.database.product.ProductDao;
+import com.example.myapplication.database.Room.User.product.Product;
 
 
 import org.jetbrains.annotations.NotNull;

@@ -11,7 +11,10 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.myapplication.database.product.Product;
+import com.example.myapplication.database.Room.User.product.Product;
+import com.example.myapplication.database.repository.Repository;
+import com.example.myapplication.database.repository.RepositoryCallback;
+import com.example.myapplication.database.repository.Result;
 import com.example.myapplication.databinding.FragmentHomeBinding;
 
 import java.util.ArrayList;
@@ -29,9 +32,16 @@ public class HomeFragment extends Fragment {
         RecyclerView recyclerView=binding.homeRecyclerview;
         List<Product> products=new ArrayList<>();
 
-        for (int i = 0; i < 100; i++) {
-            products.add(new Product(1,"Fuck You","Fucks","","Arian","09124758727",12,"12,1,1400","a good fuck"));
-        }
+        Repository.getInstance(getContext()).getAllProducts(new RepositoryCallback<List<Product>>() {
+            @Override
+            public void onComplete(Result<List<Product>> result) {
+                int i=0;
+                while (((Result.Success<List<Product>>)result).data.get(i)!=null){
+                    products.add(((Result.Success<List<Product>>)result).data.get(i));
+                }
+            }
+        });
+        
         
         HomeAdapter homeAdapter=new HomeAdapter(products);
         recyclerView.setAdapter(homeAdapter);

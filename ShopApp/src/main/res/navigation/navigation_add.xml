@@ -6,6 +6,6 @@
 
     <fragment
         android:id="@+id/addFragment"
-        android:name="com.example.myapplication.AddFragment"
+        android:name="com.example.myapplication.userUi.profile.Add.AddFragment"
         android:label="AddFragment" />
 </navigation>

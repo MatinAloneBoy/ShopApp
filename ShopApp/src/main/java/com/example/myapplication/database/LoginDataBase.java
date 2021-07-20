@@ -9,13 +9,16 @@ import androidx.annotation.Nullable;
 import java.util.ArrayList;
 
 public class LoginDataBase extends SQLiteOpenHelper {
-    private static final String DATABASE_NAME = "USER_RECORD.db";
-    private static final String TABLE_NAME = "USER_DATA";
-    private static final String COL_1 = "ID";
-    private static final String COL_2 = "USERNAME";
-    private static final String COL_3 = "EMAIL";
-    private static final String COL_4 = "PASSWORD";
-
+    private static final String DATABASE_NAME="UserDataBaseR.db";
+    private static final String TABLE_NAME="USER_DATA";
+    private static final String COL_1="ID";
+    private static final String COL_2="USERNAME";
+    private static final String COL_3="EMAIL";
+    private static final String COL_4="PASSWORD";
+    private static final String COL_5="USER_IMAGE_PATH";
+    private static final String COL_6="NUM_LOGIN";
+    private static final String COL_7="PhoneNumber";
+    private static final String COL_8="Type";
     static int id = 0;
 
 
