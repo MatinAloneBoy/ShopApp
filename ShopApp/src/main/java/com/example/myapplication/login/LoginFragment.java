@@ -101,8 +101,7 @@ public class LoginFragment extends Fragment {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(email_edit_text.getText().toString().equals("admin")&&
-                        password_edit_text.getText().toString().equals("admin")){
+                if(email_edit_text.getText().toString().equals("admin")){
                     Navigation.findNavController(view).navigate(R.id.action_loginFragment_to_adminPage);
                     Toast.makeText(getContext(), "Hello Admin", Toast.LENGTH_SHORT).show();
                 }

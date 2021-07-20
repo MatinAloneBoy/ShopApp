@@ -46,7 +46,7 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.HomeViewHolder
 
     static class HomeViewHolder extends RecyclerView.ViewHolder{
 
-        TextView titleTextView,dueTextView;
+        TextView titleTextView,dueTextView,priceTextView;
         View view;
 
         public HomeViewHolder(@NonNull @NotNull View itemView) {
@@ -54,12 +54,14 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.HomeViewHolder
 
             titleTextView = itemView.findViewById(R.id.product_title);
             dueTextView = itemView.findViewById(R.id.product_view_due);
+            priceTextView=itemView.findViewById(R.id.product_price_text_view);
             view = itemView;
         }
 
         public void bind(Product product){
             titleTextView.setText(product.Name);
             dueTextView.setText(product.SellerName);
+//            priceTextView.setText(product.Price);
 
         }
     }
