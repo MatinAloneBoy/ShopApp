@@ -41,13 +41,15 @@ public class AddFragment extends Fragment {
 
     private static final int REQUEST_GET_SINGLE_FILE = 1;
     private FragmentAddBinding binding;
-    private String ProductName,ProductPrice,ProductDescription,PhotoUrl;
+    public String ProductName,ProductPrice,ProductDescription,PhotoPath,PhotoUrl;
 
 
     @Nullable
     @org.jetbrains.annotations.Nullable
     @Override
-    public View onCreateView(@NonNull @NotNull LayoutInflater inflater, @Nullable @org.jetbrains.annotations.Nullable ViewGroup container, @Nullable @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
+    public View onCreateView(@NonNull @NotNull LayoutInflater inflater,
+                             @Nullable @org.jetbrains.annotations.Nullable ViewGroup container,
+                             @Nullable @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
         binding = FragmentAddBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
         View view = inflater.inflate(R.layout.fragment_add,container,false);
@@ -82,8 +84,10 @@ public class AddFragment extends Fragment {
         binding.addButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Product product=new Product(binding.productName.getText().toString(),PhotoUrl,Name,
-                        binding.productSellerPhoneNumber.getText().toString(),Integer.parseInt(binding.productPrice.getText().toString()),
+                Product product=new Product(binding.productName.getText().toString(),
+                        PhotoUrl,Name,
+                        binding.productSellerPhoneNumber.getText().toString(),
+                        Integer.parseInt(binding.productPrice.getText().toString()),
                         currentDate,binding.productDescriptions.getText().toString());
 
                 Repository.getInstance(getContext()).insertProduct(product,callback);
@@ -115,9 +119,11 @@ public class AddFragment extends Fragment {
         try {
             if (true) {
                 if (true) {
+
                     Uri selectedImageUri = data.getData();
                     // Get the path from the Uri
                     final String path = getPathFromURI(selectedImageUri);
+                    PhotoPath=path;
                     if (path != null) {
                         File f = new File(path);
                         selectedImageUri = Uri.fromFile(f);

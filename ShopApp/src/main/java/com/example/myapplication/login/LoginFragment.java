@@ -106,9 +106,9 @@ public class LoginFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-                boolean isExist=true;
+                boolean isExist = false;
                 List<User> users=new ArrayList<>();
-
+                getActivity().finish();
                 Repository.getInstance(getContext()).getAllUsers(new RepositoryCallback<List<User>>() {
                     @Override
                     public void onComplete(Result<List<User>> result) {
@@ -124,13 +124,14 @@ public class LoginFragment extends Fragment {
 
                 for(User user:users){
                     if(user.email.equals(email_edit_text.getText().toString())&&
-                            user.password.equals(password_edit_text.getText().toString())){
+                            user.password.equals(password_edit_text.getText().toString())&&isExist==false){
                         Context context = getActivity();
                         SharedPreferences sharedPref = context.getSharedPreferences(getString(R.string.profile_file_key), Context.MODE_PRIVATE);
                         SharedPreferences.Editor editor = sharedPref.edit();
                         editor.putString(String.valueOf(R.string.profile_name_key),user.name);
                         editor.putString(String.valueOf(R.string.profile_email_key),user.email);
                         editor.putString(String.valueOf(R.string.profile_photo_key),user.imagePath);
+                        editor.putString(String.valueOf(R.string.profile_id_key), String.valueOf(user.id));
                         editor.apply();
                         isExist=true;
 
@@ -244,7 +245,24 @@ public class LoginFragment extends Fragment {
             editor.putString(String.valueOf(R.string.profile_photo_key),personPhoto);
             editor.apply();
             User user=new User(personName,personEmail,personId+personFamilyName,"",personPhoto);
-            Repository.getInstance(getContext()).insertUser(user,callback);
+            List<User> users=new ArrayList<>();
+            getActivity().finish();
+            Repository.getInstance(getContext()).getAllUsers(new RepositoryCallback<List<User>>() {
+                @Override
+                public void onComplete(Result<List<User>> result) {
+                    if(result instanceof Result.Success){
+                        users.addAll(((Result.Success<List<User>>)result).data);
+
+                    }else if(result instanceof Result.Error){
+                        Toast.makeText(getContext(), "Error", Toast.LENGTH_SHORT).show();
+                    }
+
+                }
+            });
+
+            if(!users.contains(user)){
+                Repository.getInstance(getContext()).insertUser(user,callback);
+            }
 
             Intent intent= new Intent(getContext(), HomeBottomActivity.class);
             startActivity(intent);

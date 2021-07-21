@@ -19,6 +19,11 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
+import com.example.myapplication.database.Room.User.User;
+import com.example.myapplication.database.Room.User.product.Product;
+import com.example.myapplication.database.repository.Repository;
+import com.example.myapplication.database.repository.RepositoryCallback;
+import com.example.myapplication.database.repository.Result;
 import com.example.myapplication.userUi.profile.Add.AddActivity;
 import com.example.myapplication.R;
 import com.example.myapplication.databinding.FragmentProfileBinding;
@@ -27,6 +32,9 @@ import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.squareup.picasso.Picasso;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -41,6 +49,24 @@ public class ProfileFragment extends Fragment {
         profileViewModel =new ViewModelProvider(this).get(ProfileViewModel.class);
         View view = inflater.inflate(R.layout.fragment_profile,container,false);
 
+
+        List<User> users=new ArrayList<>();
+
+        Repository.getInstance(getContext()).getAllUsers(new RepositoryCallback<List<User>>() {
+            @Override
+            public void onComplete(Result<List<User>> result) {
+                if(result instanceof Result.Success){
+                    users.addAll(((Result.Success<List<User>>)result).data);
+
+                }else if(result instanceof Result.Error){
+                    Toast.makeText(getContext(), "Error", Toast.LENGTH_SHORT).show();
+                }
+
+            }
+        });
+
+
+
         Context context = getActivity();
         SharedPreferences sharedPref = context.getSharedPreferences(
                 getString(R.string.profile_file_key), Context.MODE_PRIVATE);
@@ -48,6 +74,7 @@ public class ProfileFragment extends Fragment {
         String GMail=sharedPref.getString(String.valueOf(R.string.profile_email_key),"");
         String GId=sharedPref.getString(String.valueOf(R.string.profile_id_key),"");
         String GPhoto=sharedPref.getString(String.valueOf(R.string.profile_photo_key),"");
+
 
         binding = FragmentProfileBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
@@ -62,7 +89,7 @@ public class ProfileFragment extends Fragment {
         binding.profileFragmentNameText.setText(GName);
         binding.profileFragmentEmailText.setText(GMail);
 
-        String List[] = {"#"+GId.substring(0,5),"Settings","Log out"};
+        String List[] = {"#","Settings","Log out"};
         simpleList = binding.profileFragmentList;
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(getActivity(), R.layout.activity_listview, R.id.textView, List);
         simpleList.setAdapter(arrayAdapter);

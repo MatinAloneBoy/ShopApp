@@ -18,7 +18,7 @@ public class LocalDataSource {
 
     public LocalDataSource(Context context){
         db= Room.databaseBuilder(context,
-                AppDataBase.class,"Products").build();
+                AppDataBase.class,"DataBase").build();
     }
 
 

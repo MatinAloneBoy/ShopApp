@@ -10,18 +10,19 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.myapplication.database.Room.User.product.Product;
+import com.example.myapplication.databinding.FragmentProductBinding;
 import com.example.myapplication.databinding.FragmentProfileBinding;
 
 import org.jetbrains.annotations.NotNull;
 
 public class ProductFragment extends Fragment {
 
-    private FragmentProfileBinding binding;
+    private FragmentProductBinding binding;
     @Nullable
     @org.jetbrains.annotations.Nullable
     @Override
     public View onCreateView(@NonNull @NotNull LayoutInflater inflater, @Nullable @org.jetbrains.annotations.Nullable ViewGroup container, @Nullable @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
-        binding = FragmentProfileBinding.inflate(inflater, container, false);
+        binding = FragmentProductBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
         Product product;

@@ -83,13 +83,18 @@ public class RegisterFragment extends Fragment {
 
 
 
-                List<User>userList = null;
+                List<User> users=new ArrayList<>();
+
                 Repository.getInstance(getContext()).getAllUsers(new RepositoryCallback<List<User>>() {
                     @Override
                     public void onComplete(Result<List<User>> result) {
                         if(result instanceof Result.Success){
-                            userList.addAll(((Result.Success<List<User>>)result).data);
+                            users.addAll(((Result.Success<List<User>>)result).data);
+
+                        }else if(result instanceof Result.Error){
+                            Toast.makeText(getContext(), "Error", Toast.LENGTH_SHORT).show();
                         }
+
                     }
                 });
 
@@ -101,7 +106,7 @@ public class RegisterFragment extends Fragment {
                         PassBox.getText().toString().trim(),PNBox.getText().toString().trim(),
                         "https://www.seekpng.com/ima/u2q8w7r5u2o0o0i1/");
 
-//                if(userList.contains(user)){
+//                if(users.contains(user)){
 //                    Toast.makeText(getContext(), "Already Exists", Toast.LENGTH_SHORT).show();
 //                }else {
                     Repository.getInstance(getContext()).insertUser(user,callback);
@@ -112,6 +117,7 @@ public class RegisterFragment extends Fragment {
                     editor.putString(String.valueOf(R.string.profile_name_key),UnBox.getText().toString());
                     editor.putString(String.valueOf(R.string.profile_email_key),EmailBox.getText().toString());
                     editor.putString(String.valueOf(R.string.profile_type_key),type);
+                    editor.putString(String.valueOf(R.string.profile_id_key), String.valueOf(user.id));
                     editor.putString(String.valueOf(R.string.profile_phone_number_key), PNBox.getText().toString());
                     editor.apply();
                     Intent intent= new Intent(getContext(), HomeBottomActivity.class);

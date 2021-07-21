@@ -24,6 +24,7 @@ import java.util.List;
 
 public class AdminPage extends Fragment {
 
+    double totalPrice;
     private FragmentAdminPageBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -45,13 +46,22 @@ public class AdminPage extends Fragment {
 
             }
         });
-        double price = 0;
+
+
+        totalPrice=0;
+
         for (Product product:products){
-            price=price+Double.valueOf(product.Price);
+            totalPrice=totalPrice+product.Price;
         }
 
 
-        binding.adminPageFragmentTotalPriceText.setText(String.valueOf(price));
+        binding.adminPageFragmentTotalPriceText.setText(String.valueOf(totalPrice));
+        binding.adminPageFragmentTotalPriceText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getContext(), String.valueOf(totalPrice), Toast.LENGTH_SHORT).show();
+            }
+        });
 
         binding.productListButton.setOnClickListener(new View.OnClickListener() {
             @Override

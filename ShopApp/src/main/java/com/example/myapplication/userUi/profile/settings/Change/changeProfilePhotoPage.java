@@ -16,14 +16,21 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.example.myapplication.R;
+import com.example.myapplication.database.Room.User.User;
+import com.example.myapplication.database.repository.Repository;
+import com.example.myapplication.database.repository.RepositoryCallback;
+import com.example.myapplication.database.repository.Result;
 import com.example.myapplication.databinding.FragmentAddBinding;
 import com.example.myapplication.databinding.FragmentChangeProfilePhotoPageBinding;
 
 import org.jetbrains.annotations.NotNull;
 
 import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
 
 public class changeProfilePhotoPage extends Fragment {
     private static final int REQUEST_GET_SINGLE_FILE = 1;
@@ -40,6 +47,25 @@ public class changeProfilePhotoPage extends Fragment {
         SharedPreferences sharedPref = context.getSharedPreferences(getString(R.string.profile_file_key), Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPref.edit();
 
+        String Name=sharedPref.getString(String.valueOf(R.string.profile_name_key),"");
+        String Mail=sharedPref.getString(String.valueOf(R.string.profile_email_key),"");
+        String ID=sharedPref.getString(String.valueOf(R.string.profile_id_key),"");
+
+
+        List<User> users=new ArrayList<>();
+
+        Repository.getInstance(getContext()).getAllUsers(new RepositoryCallback<List<User>>() {
+            @Override
+            public void onComplete(Result<List<User>> result) {
+                if(result instanceof Result.Success){
+                    users.addAll(((Result.Success<List<User>>)result).data);
+
+                }else if(result instanceof Result.Error){
+                    Toast.makeText(getContext(), "Error", Toast.LENGTH_SHORT).show();
+                }
+
+            }
+        });
 
 
         binding.profilePhotoChange.setOnClickListener(new View.OnClickListener() {
@@ -55,6 +81,11 @@ public class changeProfilePhotoPage extends Fragment {
         binding.ChangePhotoButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                for (User user:users){
+                    if (user.name.equals(Name)&&user.email.equals(Mail)){
+                        user.imagePath=newPhotoURL;
+                    }
+                }
                 editor.putString(String.valueOf(R.string.profile_photo_key),newPhotoURL);
                 editor.apply();
             }

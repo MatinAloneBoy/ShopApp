@@ -50,7 +50,7 @@ public class AdminAdapter extends RecyclerView.Adapter<AdminAdapter.AdminViewHol
             super(itemView);
 
             titleTextView = itemView.findViewById(R.id.product_title);
-            dueTextView = itemView.findViewById(R.id.product_view_due);
+            dueTextView = itemView.findViewById(R.id.product_seller_name);
             view = itemView;
         }
 

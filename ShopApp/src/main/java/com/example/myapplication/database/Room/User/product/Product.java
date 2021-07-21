@@ -1,5 +1,7 @@
 package com.example.myapplication.database.Room.User.product;
 
+import android.net.Uri;
+
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.Ignore;

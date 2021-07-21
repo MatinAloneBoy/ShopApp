@@ -1,6 +1,8 @@
 package com.example.myapplication.database.Room.User.product;
 
 
+import android.net.Uri;
+
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
