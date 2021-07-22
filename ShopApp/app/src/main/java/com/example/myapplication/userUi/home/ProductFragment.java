@@ -9,6 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.example.myapplication.database.product.Product;
 import com.example.myapplication.databinding.FragmentProfileBinding;
 
 import org.jetbrains.annotations.NotNull;
@@ -23,6 +24,7 @@ public class ProductFragment extends Fragment {
         binding = FragmentProfileBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
+        Product product;
 
         return root;
     }

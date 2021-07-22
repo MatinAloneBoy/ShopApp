@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.myapplication" >
+    package="com.example.myapplication">
 
     <application
         android:allowBackup="true"
@@ -8,16 +8,13 @@
         android:label="Shop App"
         android:roundIcon="@mipmap/ic_shop_logo_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.MyApplication" >
-        <activity
-            android:name=".AdminHomeBottomActivity"
-            android:label="@string/title_activity_admin_home_bottom" >
-        </activity>
+        android:theme="@style/Theme.MyApplication">
+        <activity android:name=".AddActivity"></activity>
         <activity android:name=".userUi.home.Listview" />
         <activity
             android:name=".userUi.home.HomeBottomActivity"
             android:label="@string/title_activity_home_bottom" />
-        <activity android:name=".login.LoginActivity" >
+        <activity android:name=".login.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -29,5 +26,6 @@
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
     </application>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
 </manifest>

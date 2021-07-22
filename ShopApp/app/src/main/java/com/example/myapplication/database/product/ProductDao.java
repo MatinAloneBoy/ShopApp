@@ -13,8 +13,8 @@ import java.util.List;
 @Dao
 public interface ProductDao {
 
-    @Query("INSERT INTO Product VALUES(:ID,:SellerName,:Name,:PhoneNumber,:PhotoUrl,:Date)")
-    void insert(int ID, String SellerName, String Name, int PhoneNumber, String PhotoUrl, String Date);
+    @Query("INSERT INTO Product VALUES(:ID,:Name,:Group,:PhotoUrl,:SellerName,:SellerPhone,:Price,:Date,:Description)")
+    void insert(int ID,String Name,String Group,String PhotoUrl,String SellerName,String SellerPhone,int Price,String Date,String Description);
 
 
     @Query("SELECT * FROM Product")
@@ -23,6 +23,10 @@ public interface ProductDao {
 
     @Query("SELECT * FROM Product WHERE Name IN (:ProductNames)")
     List<Product> loadAllByNames(int[] ProductNames);
+
+
+    @Query("SELECT * FROM product WHERE Name LIKE :name LIMIT 1")
+    Product findByName(String name);
 
 
     @Insert

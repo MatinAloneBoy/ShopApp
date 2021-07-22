@@ -10,6 +10,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.myapplication.R;
 import com.example.myapplication.database.product.Product;
+import com.example.myapplication.database.product.ProductDao;
+
 
 import org.jetbrains.annotations.NotNull;
 
@@ -56,9 +58,9 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.HomeViewHolder
             view = itemView;
         }
 
-        public void bind(Product pro){
-            titleTextView.setText(pro.Name);
-            dueTextView.setText(pro.Date);
+        public void bind(Product product){
+            titleTextView.setText(product.Name);
+            dueTextView.setText(product.SellerName);
 
         }
     }
