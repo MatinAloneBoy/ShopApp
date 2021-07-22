@@ -25,7 +25,6 @@ import com.example.myapplication.database.repository.RepositoryCallback;
 import com.example.myapplication.database.repository.Result;
 import com.example.myapplication.userUi.home.HomeBottomActivity;
 import com.example.myapplication.R;
-import com.example.myapplication.database.UsersDataBase;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -38,7 +37,6 @@ public class RegisterFragment extends Fragment {
     private EditText EmailBox,PassBox,UnBox,PNBox;
     private Switch UserModeSwitch;
     String type=new String();
-    UsersDataBase us;
 
     @Nullable
     @org.jetbrains.annotations.Nullable
@@ -70,17 +68,10 @@ public class RegisterFragment extends Fragment {
 
 
 
-        us=new UsersDataBase(getContext());
         registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Toast.makeText(getActivity(), "Registered", Toast.LENGTH_SHORT).show();
-                us.register_user(UnBox.getText().toString().trim(),
-                        EmailBox.getText().toString().trim(),PassBox.getText().toString().trim(),
-                        type,PNBox.getText().toString().trim(),
-                        "https://www.seekpng.com/ima/u2q8w7r5u2o0o0i1/");
-
-
 
 
                 List<User> users=new ArrayList<>();

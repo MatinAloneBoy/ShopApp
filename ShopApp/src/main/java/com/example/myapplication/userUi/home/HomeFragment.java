@@ -46,7 +46,6 @@ public class HomeFragment extends Fragment {
             }
         });
 
-
             products.add(new Product("Name","https://www.pngitem.com/pimgs/b/178-1783030_shop-now-png.png","Seller","09124758727",12000,"12,1,1400","Description"));
 
         

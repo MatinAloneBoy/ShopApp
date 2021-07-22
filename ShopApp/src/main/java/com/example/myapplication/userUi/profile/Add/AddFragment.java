@@ -16,13 +16,9 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.room.Room;
 
 import com.example.myapplication.R;
-import com.example.myapplication.database.UpdateProfileDataBase;
 import com.example.myapplication.database.Room.User.product.Product;
-import com.example.myapplication.database.Room.User.product.ProductDao;
-import com.example.myapplication.database.Room.User.product.AppDataBase;
 import com.example.myapplication.database.repository.Repository;
 import com.example.myapplication.database.repository.RepositoryCallback;
 import com.example.myapplication.database.repository.Result;
@@ -34,7 +30,6 @@ import org.jetbrains.annotations.NotNull;
 import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.List;
 
 public class AddFragment extends Fragment {
 

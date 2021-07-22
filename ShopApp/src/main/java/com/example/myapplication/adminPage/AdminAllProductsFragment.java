@@ -43,6 +43,8 @@ public class AdminAllProductsFragment extends Fragment {
         binding = FragmentAdminAllProductsBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
         RecyclerView recyclerView=binding.adminProductsRecyclerview;
+
+
         List<Product> products=new ArrayList<>();
 
         Repository.getInstance(getContext()).getAllProducts(new RepositoryCallback<List<Product>>() {

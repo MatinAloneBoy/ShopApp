@@ -25,6 +25,7 @@ import com.example.myapplication.database.repository.RepositoryCallback;
 import com.example.myapplication.database.repository.Result;
 import com.example.myapplication.databinding.FragmentAddBinding;
 import com.example.myapplication.databinding.FragmentChangeProfilePhotoPageBinding;
+import com.example.myapplication.userUi.home.HomeBottomActivity;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -86,6 +87,8 @@ public class changeProfilePhotoPage extends Fragment {
                         user.imagePath=newPhotoURL;
                     }
                 }
+                Intent intent= new Intent(getContext(), HomeBottomActivity.class);
+                startActivity(intent);
                 editor.putString(String.valueOf(R.string.profile_photo_key),newPhotoURL);
                 editor.apply();
             }

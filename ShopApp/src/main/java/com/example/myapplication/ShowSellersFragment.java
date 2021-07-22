@@ -14,6 +14,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.example.myapplication.database.Room.User.User;
+import com.example.myapplication.database.Room.User.product.Product;
 import com.example.myapplication.database.repository.Repository;
 import com.example.myapplication.database.repository.RepositoryCallback;
 import com.example.myapplication.database.repository.Result;
@@ -36,13 +37,13 @@ public class ShowSellersFragment extends Fragment {
         View root = binding.getRoot();
 
 
-        List<User> Users=new ArrayList<>();
+        List<Product> products=new ArrayList<>();
 
-        Repository.getInstance(getContext()).getAllUsers(new RepositoryCallback<List<User>>() {
+        Repository.getInstance(getContext()).getAllProducts(new RepositoryCallback<List<Product>>() {
             @Override
-            public void onComplete(Result<List<User>> result) {
+            public void onComplete(Result<List<Product>> result) {
                 if(result instanceof Result.Success){
-                    Users.addAll(((Result.Success<List<User>>)result).data);
+                    products.addAll(((Result.Success<List<Product>>)result).data);
 
                 }else if(result instanceof Result.Error){
                     Toast.makeText(getContext(), "Error", Toast.LENGTH_SHORT).show();
@@ -50,18 +51,19 @@ public class ShowSellersFragment extends Fragment {
 
             }
         });
+
         List<String>SellerNames=new ArrayList<>();
 
 
-        for (User user:Users){
-            SellerNames.add(user.name);
+        for (Product product:products){
+            SellerNames.add(product.SellerName);
         }
 
 
 
 
         
-        ListView simpleList = binding.profileFragmentList;
+        ListView simpleList = binding.allSellerList;
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(getActivity(), R.layout.activity_listview, R.id.textView, SellerNames);
         simpleList.setAdapter(arrayAdapter);
         return root;

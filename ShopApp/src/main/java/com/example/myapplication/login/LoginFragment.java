@@ -31,7 +31,6 @@ import com.example.myapplication.database.repository.Result;
 import com.example.myapplication.databinding.FragmentLoginBinding;
 import com.example.myapplication.userUi.home.HomeBottomActivity;
 import com.example.myapplication.R;
-import com.example.myapplication.database.UsersDataBase;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -53,7 +52,6 @@ public class LoginFragment extends Fragment {
     private TextView forgetPass,error_text,register_text;
     private SignInButton signInButton;
     private GoogleSignInClient mGoogleSignInClient;
-    UsersDataBase us;
 
 
     ActivityResultLauncher<Intent> mStartForResult = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(),
@@ -101,14 +99,12 @@ public class LoginFragment extends Fragment {
             }
         };
 
-        us=new UsersDataBase(getContext());
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 boolean isExist = false;
                 List<User> users=new ArrayList<>();
-                getActivity().finish();
                 Repository.getInstance(getContext()).getAllUsers(new RepositoryCallback<List<User>>() {
                     @Override
                     public void onComplete(Result<List<User>> result) {
@@ -134,7 +130,6 @@ public class LoginFragment extends Fragment {
                         editor.putString(String.valueOf(R.string.profile_id_key), String.valueOf(user.id));
                         editor.apply();
                         isExist=true;
-
                     }
                     else {
                         isExist=false;
@@ -144,8 +139,9 @@ public class LoginFragment extends Fragment {
                     Navigation.findNavController(view).navigate(R.id.action_loginFragment_to_adminPage);
                     Toast.makeText(getContext(), "Hello Admin", Toast.LENGTH_SHORT).show();
                 }
-                else if(isExist) {
+                else if(isExist==true) {
                     Intent intent= new Intent(getContext(), HomeBottomActivity.class);
+                    getActivity().finish();
                     startActivity(intent);
                 }
                 else {
@@ -227,7 +223,7 @@ public class LoginFragment extends Fragment {
             String personFamilyName = account.getFamilyName();
             String personEmail = account.getEmail();
             String personId = account.getId();
-            if(!account.getPhotoUrl().equals(null)){
+            if(account.getPhotoUrl()==null){
                 personPhoto = account.getPhotoUrl().toString();
 
             }else {

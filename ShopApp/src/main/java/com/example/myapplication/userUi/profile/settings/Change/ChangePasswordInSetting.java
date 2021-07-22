@@ -1,6 +1,7 @@
 package com.example.myapplication.userUi.profile.settings.Change;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -16,10 +17,17 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.myapplication.R;
-import com.example.myapplication.database.UpdateProfileDataBase;
+import com.example.myapplication.database.Room.User.User;
+import com.example.myapplication.database.repository.Repository;
+import com.example.myapplication.database.repository.RepositoryCallback;
+import com.example.myapplication.database.repository.Result;
 import com.example.myapplication.databinding.FragmentChangePasswordInSettingBinding;
+import com.example.myapplication.userUi.home.HomeBottomActivity;
 
 import org.jetbrains.annotations.NotNull;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ChangePasswordInSetting extends Fragment {
 
@@ -27,7 +35,6 @@ public class ChangePasswordInSetting extends Fragment {
     private Button sendPassButton;
     private TextView newPassText;
     private EditText newPassBox;
-    UpdateProfileDataBase upd;
     private @NonNull FragmentChangePasswordInSettingBinding binding;
 
 
@@ -35,10 +42,25 @@ public class ChangePasswordInSetting extends Fragment {
     @org.jetbrains.annotations.Nullable
     @Override
     public View onCreateView(@NonNull @NotNull LayoutInflater inflater, @Nullable @org.jetbrains.annotations.Nullable ViewGroup container, @Nullable @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_change_password_in_setting,container,false);
 
         binding = FragmentChangePasswordInSettingBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
+
+
+        List<User> users=new ArrayList<>();
+
+        Repository.getInstance(getContext()).getAllUsers(new RepositoryCallback<List<User>>() {
+            @Override
+            public void onComplete(Result<List<User>> result) {
+                if(result instanceof Result.Success){
+                    users.addAll(((Result.Success<List<User>>)result).data);
+
+                }else if(result instanceof Result.Error){
+                    Toast.makeText(getContext(), "Error", Toast.LENGTH_SHORT).show();
+                }
+
+            }
+        });
 
 
         sendPassButton=binding.ChangePasswordPageButton;
@@ -50,16 +72,21 @@ public class ChangePasswordInSetting extends Fragment {
                 getString(R.string.profile_file_key), Context.MODE_PRIVATE);
         mail=sharedPref.getString(String.valueOf(R.string.profile_email_key),"");
 
-
         sendPassButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getActivity(), "Sending Email", Toast.LENGTH_SHORT).show();
-                upd=new UpdateProfileDataBase(getContext());
-                upd.updatePhoneNumber(newPassBox.getText().toString(),mail);
+                Toast.makeText(getActivity(), "Password Changed", Toast.LENGTH_SHORT).show();
+                for (User user:users){
+                    if (user.email.equals(mail)){
+                        user.password=newPassBox.getText().toString();
+                    }
+                }
+                Intent intent= new Intent(getContext(), HomeBottomActivity.class);
+                startActivity(intent);
+
             }
         });
 
-        return view;
+        return root;
     }
 }

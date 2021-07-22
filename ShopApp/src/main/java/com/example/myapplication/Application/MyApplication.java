@@ -7,5 +7,4 @@ import java.util.concurrent.Executors;
 
 public class MyApplication extends Application {
     public static ExecutorService executorService = Executors.newFixedThreadPool(4);
-
 }

@@ -96,7 +96,7 @@
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
             android:background="@drawable/button_background"
-            android:text="Send Email"
+            android:text="Change Password"
             android:textAlignment="center"
             android:textColor="#353535"
             android:visibility="visible"

@@ -31,11 +31,5 @@ public class HomeBottomActivity extends AppCompatActivity {
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_home);
         NavigationUI.setupWithNavController(binding.navView, navController);
-
-
-
-
     }
-
-
 }

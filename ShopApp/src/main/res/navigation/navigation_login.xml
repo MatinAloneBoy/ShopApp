@@ -40,7 +40,11 @@
     <fragment
         android:id="@+id/forgetPassFragment"
         android:name="com.example.myapplication.login.ForgetPassFragment"
-        android:label="ForgetPassFragment" />
+        android:label="ForgetPassFragment" >
+        <action
+            android:id="@+id/action_forgetPassFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
     <fragment
         android:id="@+id/adminPage"
         android:name="com.example.myapplication.adminPage.AdminPage"

@@ -11,7 +11,7 @@ import com.example.myapplication.database.Room.User.UserDao;
 
 @Database(entities ={Product.class, User.class}, version = 1)
 public abstract class AppDataBase extends RoomDatabase {
-    private static final String DB_NAME = "products.db";
+    private static final String DB_NAME = "AppDataBase";
     private static AppDataBase instance;
 
     public static synchronized AppDataBase getInstance(Context context) {
@@ -23,5 +23,4 @@ public abstract class AppDataBase extends RoomDatabase {
     }
     public abstract ProductDao productDao();
     public abstract UserDao userDao();
-
 }

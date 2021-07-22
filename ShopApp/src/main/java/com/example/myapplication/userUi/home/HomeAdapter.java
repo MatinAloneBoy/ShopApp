@@ -24,6 +24,7 @@ import java.util.List;
 
 public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.HomeViewHolder> {
 
+
     private List<Product> products;
 
     public HomeAdapter(List<Product> products) {
@@ -56,6 +57,7 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.HomeViewHolder
         TextView titleTextView,sellerNameTextView,priceTextView;
         View view;
 
+
         public HomeViewHolder(@NonNull @NotNull View itemView) {
             super(itemView);
 
@@ -70,6 +72,7 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.HomeViewHolder
             titleTextView.setText(product.Name);
             sellerNameTextView.setText(product.SellerName);
             priceTextView.setText(String.valueOf(product.Price));
+
         if(!product.PhotoUrl.equals(null)){
             Picasso.get().load(Uri.parse(product.PhotoUrl)).into(imageView);
         }
@@ -77,6 +80,7 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.HomeViewHolder
                 @Override
                 public void onClick(View v) {
                     Toast.makeText(itemView.getContext(), product.PhotoUrl, Toast.LENGTH_SHORT).show();
+                    ////////showing the product
                     Navigation.findNavController(v).navigate(R.id.action_navigation_home_to_productFragment);
                 }
             });

@@ -36,8 +36,8 @@ public class Repository {
             @Override
             public void run() {
                 try {
-                    List<Product> users = localDataSource.getAllProducts();
-                    callback.onComplete(new Result.Success<>(users));
+                    List<Product> products = localDataSource.getAllProducts();
+                    callback.onComplete(new Result.Success<>(products));
                 }catch (Exception e){
                     callback.onComplete(new Result.Error<>(e));
                 }
@@ -89,7 +89,6 @@ public class Repository {
                 }
             }
         });
-
     }
 
 }
