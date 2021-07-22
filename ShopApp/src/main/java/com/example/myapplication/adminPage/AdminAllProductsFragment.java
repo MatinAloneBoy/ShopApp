@@ -64,7 +64,7 @@ public class AdminAllProductsFragment extends Fragment {
         products.add(new Product("Toy","","Arian","09124758727",12000,"12,1,1400","a good Toy"));
 
 
-        HomeAdapter homeAdapter=new HomeAdapter(products);
+        HomeAdapter homeAdapter=new HomeAdapter(products,getContext());
         recyclerView.setAdapter(homeAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 

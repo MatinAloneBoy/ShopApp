@@ -49,7 +49,7 @@ public class HomeFragment extends Fragment {
             products.add(new Product("Name","https://www.pngitem.com/pimgs/b/178-1783030_shop-now-png.png","Seller","09124758727",12000,"12,1,1400","Description"));
 
         
-        HomeAdapter homeAdapter=new HomeAdapter(products);
+        HomeAdapter homeAdapter=new HomeAdapter(products,getContext());
         recyclerView.setAdapter(homeAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         return root;

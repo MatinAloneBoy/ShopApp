@@ -81,7 +81,7 @@ public class SearchFragment extends Fragment implements SearchView.OnQueryTextLi
                 for (Product p:products) {
                     if(p.Name.contains(binding.searchEditText.getText().toString())){
                         productsToShow.add(p);
-                        HomeAdapter homeAdapter=new HomeAdapter(productsToShow);
+                        HomeAdapter homeAdapter=new HomeAdapter(productsToShow,getContext());
                         recyclerView.setAdapter(homeAdapter);
                     }
                 }

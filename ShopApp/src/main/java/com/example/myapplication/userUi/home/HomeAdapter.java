@@ -1,5 +1,7 @@
 package com.example.myapplication.userUi.home;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,13 +24,15 @@ import org.jetbrains.annotations.NotNull;
 import java.io.File;
 import java.util.List;
 
-public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.HomeViewHolder> {
+public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.HomeViewHolder>{
 
 
     private List<Product> products;
+    public Context context;
 
-    public HomeAdapter(List<Product> products) {
+    public HomeAdapter(List<Product> products, Context context) {
         this.products = products;
+        this.context=context;
     }
 
 
@@ -43,7 +47,7 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.HomeViewHolder
 
     @Override
     public void onBindViewHolder(@NonNull @NotNull HomeViewHolder holder, int position) {
-        holder.bind(products.get(position));
+        holder.bind(products.get(position),context);
     }
 
     @Override
@@ -68,7 +72,7 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.HomeViewHolder
             view = itemView;
         }
 
-        public void bind(Product product){
+        public void bind(Product product,Context context){
             titleTextView.setText(product.Name);
             sellerNameTextView.setText(product.SellerName);
             priceTextView.setText(String.valueOf(product.Price));
@@ -79,7 +83,18 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.HomeViewHolder
             view.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Toast.makeText(itemView.getContext(), product.PhotoUrl, Toast.LENGTH_SHORT).show();
+
+                    SharedPreferences sharedPref = context.getSharedPreferences(String.valueOf(R.string.profile_file_key), Context.MODE_PRIVATE);
+                    SharedPreferences.Editor editor = sharedPref.edit();
+                    editor.putString("Product Name",product.Name);
+                    editor.putString("Product Date",product.Date);
+                    editor.putString("Product Photo",product.PhotoUrl);
+                    editor.putString("Product Seller Name",product.SellerName);
+                    editor.putString("Product Seller PhoneNum",product.SellerPhone);
+                    editor.putString("Product Price",String.valueOf(product.Price));
+                    editor.putString("Product Description",product.Description);
+                    editor.putString("Product Date",product.Date);
+                    editor.apply();
                     ////////showing the product
                     Navigation.findNavController(v).navigate(R.id.action_navigation_home_to_productFragment);
                 }
