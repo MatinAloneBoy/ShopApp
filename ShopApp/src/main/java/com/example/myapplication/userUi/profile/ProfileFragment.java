@@ -89,7 +89,7 @@ public class ProfileFragment extends Fragment {
         binding.profileFragmentNameText.setText(GName);
         binding.profileFragmentEmailText.setText(GMail);
 
-        String List[] = {"#","Settings","Log out"};
+        String List[] = {"Settings","Log out"};
         simpleList = binding.profileFragmentList;
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(getActivity(), R.layout.activity_listview, R.id.textView, List);
         simpleList.setAdapter(arrayAdapter);
@@ -100,15 +100,11 @@ public class ProfileFragment extends Fragment {
                 NavController navController = Navigation.findNavController(getActivity(), R.id.nav_host_fragment_activity_home);
                 switch (position){
                     case 0:
-                        Toast.makeText(context, "ID", Toast.LENGTH_SHORT).show();
-                        break;
-
-                    case 1:
                         Navigation.findNavController(view).navigate(R.id.action_navigation_profile_to_settingsFragment);
                         Toast.makeText(context, "Settings", Toast.LENGTH_SHORT).show();
                         break;
 
-                    case 2:
+                    case 1:
                         signOut();
                         Intent intent= new Intent(getContext(), LoginActivity.class);
                         startActivity(intent);

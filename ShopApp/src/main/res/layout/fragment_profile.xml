@@ -73,7 +73,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/profile_fragment_image_frame"
         android:paddingRight="65dp"
-        android:paddingTop="10dp">
+        android:paddingTop="30dp"
+        android:paddingBottom="30dp">
 
         <LinearLayout
             android:layout_width="match_parent"

@@ -72,16 +72,25 @@ public class SearchFragment extends Fragment implements SearchView.OnQueryTextLi
             ProductNames.add(p.Name);
         }
 
-        List<Product> productsToShow=new ArrayList<>();
-        for (Product p:products) {
-            if(p.Name.contains(binding.searchEditText.getText().toString())){
-                productsToShow.add(p);
+
+
+        binding.searchIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                List<Product> productsToShow=new ArrayList<>();
+                for (Product p:products) {
+                    if(p.Name.contains(binding.searchEditText.getText().toString())){
+                        productsToShow.add(p);
+                        HomeAdapter homeAdapter=new HomeAdapter(productsToShow);
+                        recyclerView.setAdapter(homeAdapter);
+                    }
+                }
+
             }
-        }
+        });
 
 
-        HomeAdapter homeAdapter=new HomeAdapter(productsToShow);
-        recyclerView.setAdapter(homeAdapter);
+
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         return root;
     }
